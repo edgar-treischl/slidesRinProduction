@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Git(Hub) Introduction</title>
+    <title>index.knit</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Dr. Edgar Treischl" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <script src="libs/mark.js/mark.min.js"></script>
     <link href="libs/xaringanExtra-search/search.css" rel="stylesheet" />
@@ -64,7 +63,7 @@ class: center, middle
 
 
   
-## Title
+## Make it reproducibleR
 
 .large[Dr. Edgar J. Treischl] &lt;br&gt;
 &lt;a href="www.edgar-treischl.de" target="_blank"&gt;www.edgar-treischl.de&lt;/a&gt;
@@ -89,7 +88,7 @@ You may copy, distribute, and use the slides in your own work, as long as you gi
 
 
 ---
-## 📆 Agenda
+## 📅 Agenda
 
 
 
@@ -97,8 +96,10 @@ You may copy, distribute, and use the slides in your own work, as long as you gi
 
 .pull-left[
 
-### 1️⃣ Bla
-### 2️⃣ Bla bla
+### 1️⃣ Habits
+### 2️⃣  Make it a like a package
+### 3️⃣  Versioncontrol
+### 4️⃣  Documentation
 
 
 
@@ -331,6 +332,23 @@ git merge &lt;branch-name&gt;
 &lt;/figure&gt;
 ]
 
+
+---
+## 04: Documentation
+
+
+### Why code should live in a script and documentation in a Rmd file?
+
+
+
+``` r
+#Extracts R code chunks from Rmd files
+knitr::purl()
+```
+
+Adjust the level of extraction with the `documentation` paramter: "An integer specifying the level of documentation to add to the tangled script. 0 means to output pure code, discarding all text chunks); 1 (the default) means to add the chunk headers to the code; 2 means to add all text chunks to code as roxygen comments."
+
+- Set `purl = FALSE` to avoid the extraction of code chunks
 
 
 ---
