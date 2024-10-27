@@ -1,0 +1,427 @@
+---
+date: "Last update: `r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    seal: false
+    #chakra: libs/remark-latest.min.js
+    lib_dir: libs
+    nature:
+      ratio: '16:9'
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      titleSlideClass: [center, middle]
+---
+
+class: center, middle
+
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+library(ggplot2)
+library(tidyverse)
+library(readr)
+library(gridExtra)
+library(cowplot)
+
+#library(jtools)
+
+
+knitr::opts_chunk$set(fig.retina = 3, warning = FALSE, message = FALSE)
+
+
+
+theme_set(theme_minimal(base_size = 20)) # sets a default ggplot theme
+
+has_bash <- Sys.which('bash') != '' && .Platform$OS.type != 'windows'
+
+library(RefManageR)
+bib <- ReadBib("PracticeR_FINAL.bib", check = FALSE)
+ui <- "- "
+```
+
+
+
+
+```{r best-features, echo=FALSE}
+#search
+xaringanExtra::use_search(show_icon = TRUE, position = "top-right")
+
+xaringanExtra::use_progress_bar(color = "#023047", location = "top")
+
+xaringanExtra::style_search(match_background = "black",
+                            input_background = "white",
+                            input_border = "black",
+                            match_current_background = "green")
+
+
+xaringanExtra::use_panelset()
+
+```
+
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "black",
+  header_font_google = google_font("Lato"),
+  text_font_google   = google_font("Montserrat", "300", "300i"),
+  code_font_google   = google_font("Fira Code")
+)
+```
+
+
+
+  
+## Make it reproducibleR
+
+.large[Dr. Edgar J. Treischl] <br>
+<a href="www.edgar-treischl.de" target="_blank">www.edgar-treischl.de</a>
+<br/>
+<br/>
+.large[Last update: `r Sys.Date()`]
+<br/>
+<br/>
+This presentation is licensed under a CC-BY-NC 4.0 license.
+You may copy, distribute, and use the slides in your own work, as long as you give attribution to the original author on each slide that you use. Commercial use of the contents of these slides is not allowed.
+
+<img align="right" src="images/by-nceu.png" width="150px"/>
+
+
+
+
+```{css, echo = F}
+.reduced_opacity {
+  opacity: 0.5;
+}
+```
+
+
+---
+## `r emoji::emoji("schedule")` Agenda
+
+
+
+
+
+.pull-left[
+
+### `r emoji::emoji("one")` Bla
+### `r emoji::emoji("two")` Bla bla
+
+
+
+]
+
+.pull-right[
+
+
+<a href="https://edgar-treischl.github.io/PracticeR/" target="_blank"><img src="https://edgar-treischl.github.io/PracticeR/reference/figures/cover.png" alt="The ggplot2 package" width="200"/></a>
+
+This workshop is based on Practice R.
+]
+
+
+
+---
+background-image: url("images/g3.gif")
+background-size: cover
+class: bottom, center
+
+# .white[`r emoji::emoji("one")` background-image] 
+
+
+
+---
+
+## Small Left and Large Right
+
+.left-column[
+<br/>
+<a href="https://git-scm.com/" target="_blank"><img src="https://git-scm.com/images/logo@2x.png" style="width: 70%"/></a>
+<br/>
+<br/>
+<br/>
+<a href="https://github.com" target="_blank"><img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="Github" width="60%"/></a>
+
+]
+
+.right-column[
+- Git is a version control system to track changes over time
+- Continuous integration (CI) and continuous deployment (CD)
+- GitHub is an host (website) for Git-based projects
+- Each project is stored in a repository (folder with all files)
+- A repository can be *public* or *private*
+
+
+
+
+]
+
+
+
+
+
+
+
+
+
+---
+## Tabs
+
+
+.panelset[
+.panel[.panel-name[Track Code]
+
+<img src="images/allison_horst.png" style="width: 40%"/>
+]
+
+.panel[.panel-name[Share Code]
+
+.pull-left[
+```{r plot-last, fig.show = 'hide', eval=FALSE}
+#Source the script from the raw github link
+#The raw github link
+link <- "https://raw.githubusercontent.com/
+        edgar-treischl/.../file.R"
+
+#source_url: Source a script from a url
+devtools::source_url(link)
+```
+
+```{r eval=FALSE}
+#runGitHub: Run a shiny app from GitHub
+shiny::runGitHub("power-app", 
+                 "edgar-treischl", 
+                 ref="main")
+```
+
+]
+.pull-right[
+<img src="images/plot-last-1.png" style="width: 90%"/>
+]
+
+
+]
+
+.panel[.panel-name[Automate workflows]
+
+.pull-left[
+
+```yaml
+on:
+  push:
+    branches: [main, master]
+    
+jobs:
+  pkgdown:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: my_script.R
+```
+
+
+]
+
+.pull-right[
+<img src="images/allison_horst.png" style="width: 80%"/>
+]
+]
+
+.panel[.panel-name[...]
+
+- Work together
+- Host websites for projects
+- GitHub Gist
+- ...
+
+]
+]
+
+
+
+
+
+
+
+
+
+
+---
+background-image: url(https://usethis.r-lib.org/logo.png)
+background-position: 90% 5%
+background-size: 10%
+
+## Logos in the Header
+
+
+### Bla bla
+
+
+```{r, eval=FALSE}
+library(usethis)
+use_git_config(user.name = "Jane Doe",
+               user.email = "jane@example.org")
+```
+
+
+
+
+
+---
+## pull-left and pull-right
+
+.pull-left[
+
+- **Repository**: A folder with all project files
+- **Push**: Send code (files) to Git 
+- **Pull**: Get code (files) from a Git repository
+- **Commit**: A snapshot of a repository at a certain point in time
+- **Branch**: A parallel version within the repository to test new features
+
+
+]
+
+.pull-right[
+<figure>
+    <img src="images/allison_horst.png" style="width: 100%"/>
+    <figcaption style = "color: darkgray;">'Artwork by @allison_horst'</figcaption>
+</figure>
+]
+
+
+
+
+---
+## Img Tag
+
+<img src="images/allison_horst.png" style="width: 40%"/>
+
+
+
+
+---
+## Fig Caption
+
+.pull-left[
+
+```bash
+#git add: Add a file to the staging area
+git add <file-name-1>
+
+#-A: Add all files to the staging area
+git add -A
+
+#git commit -am: Commit changes
+git commit -am <commit-message>
+
+#git push: Push changes to the remote rep
+git push <remote> <branch-name>
+
+#git pull: Pull changes from the remote rep
+git pull
+
+#git merge: Merge two branches
+git merge <branch-name>
+```
+
+
+]
+
+.pull-right[
+<br/>
+<br/>
+<figure>
+    <img src="images/allison_horstgf.png" style="width: 100%"/>
+    <figcaption style = "color: darkgray;">'Artwork by @allison_horst'</figcaption>
+</figure>
+]
+
+
+
+---
+class: center, middle
+
+.left-column[
+
+## Keep in touch
+
+#### <a href="https://edgar-treischl.de" target="_blank"><img src="https://avatars.githubusercontent.com/u/77931249?s=400&u=eaf1d0871b643dd32cc0ff9f777edef28e6569a8&v=4" alt="www.edgar-treischl.de" width="25%"/><br/>www.edgar-treischl.de</a>
+<br/>
+
+#### <a href="https://github.com/edgar-treischl" target="_blank"><img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="https://github.com/edgar-treischl" width="30%"/><br/>edgar-treischl</a>
+
+
+]
+
+.right-column[
+
+
+## Thank you for your attention!
+<br/>
+
+<img src="images/allison_horst.png" style="width: 30%"/>
+
+]
+
+
+
+
+
+
+
+---
+
+## References
+
+
+```{r, print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+
+print(bib[key = "chacon_pro_2014"], 
+  .opts = list(check.entries = FALSE, 
+               style = "html", 
+               bib.style = "authoryear"))
+
+print(bib[key = "shiny"], 
+  .opts = list(check.entries = TRUE, 
+               style = "html", 
+               bib.style = "authoryear"))
+
+print(bib[key = "treischl_practice_2023"], 
+  .opts = list(check.entries = FALSE, 
+               style = "html", 
+               bib.style = "authoryear"))
+
+print(bib[key = "usethis"], 
+  .opts = list(check.entries = FALSE, 
+               style = "html", 
+               bib.style = "authoryear"))
+
+print(bib[key = "devtools"], 
+  .opts = list(check.entries = FALSE, 
+               style = "html", 
+               bib.style = "authoryear"))
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
