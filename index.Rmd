@@ -109,8 +109,8 @@ You may copy, distribute, and use the slides in your own work, as long as you gi
 
 .pull-left[
 
-### `r emoji::emoji("one")` Habits
-### `r emoji::emoji("two")`  Make it a like a package
+### `r emoji::emoji("one")` Common concerns
+### `r emoji::emoji("two")`  Packages
 ### `r emoji::emoji("three")`  Versioncontrol
 ### `r emoji::emoji("four")`  Documentation
 
@@ -120,24 +120,248 @@ You may copy, distribute, and use the slides in your own work, as long as you gi
 
 .pull-right[
 
+<img src="images/IExcel.png" style="width: 80%" align="center"/>
 
-<a href="https://edgar-treischl.github.io/PracticeR/" target="_blank"><img src="https://edgar-treischl.github.io/PracticeR/reference/figures/cover.png" alt="The ggplot2 package" width="200"/></a>
+]
 
-This workshop is based on Practice R.
+
+
+
+---
+background-image: url("images/hitrobin.gif")
+background-size: cover
+class: bottom, center
+
+
+# Common concerns
+
+## .white[`r emoji::emoji("one")` Bad habits ] 
+
+
+
+---
+## Start with a clean slate (from Bryan et al. 2021)
+
+.pull-left[
+
+- Start with a clean slate and restart R: Do not save the workspace and do not load the workspace from an `.Rdata` file.
+
+
+### Abandon the rm approach `r emoji::emoji("skull")`
+
+- `rm(list = ls())` deletes user-created objects from the global workspace.
+
+- The script may break due to hidden dependencies on things you ran in this R process before you executed: Attached packages are not detached, changed options are not restored, working directory is untouched!
+
+
+
+
+
+]
+
+.pull-right[
+<figure>
+    <img src="https://rstats.wtf/img/rstudio-workspace.png" style="width: 100%"/>
+    <figcaption style = "color: darkgray;">'Artwork by @allison_horst'</figcaption>
+</figure>
 ]
 
 
 
 ---
-background-image: url("images/g3.gif")
-background-size: cover
-class: bottom, center
 
-# .white[`r emoji::emoji("one")` background-image] 
+## Fix paths with the here package
+
+Abandon absolute  paths, they will break anyway `r emoji::emoji("skull")`
+
+```{r, eval=FALSE}
+#Don't:
+readr::read_csv("~/Documents/Berichte/orig/104_data.csv")
+```
+
+Create a project and use the `here` package:
+
+```{r, eval=TRUE}
+#Here returns the path to the project
+here::here()
+#Create a path to the data file
+here::here("data", "104_data.csv")
+```
+
+
 
 
 
 ---
+background-image: url("images/superman.gif")
+background-size: cover
+class: bottom, center
+
+# Packages
+
+## .white[`r emoji::emoji("two")` Package it] 
+
+
+---
+## Packages: R Packages
+
+.pull-left[
+
+### Make a package because ... 
+
+- **Quality insurance**: Make sure everything is under the hood
+- **Travel back in time**: Package version 
+
+
+]
+
+.pull-right[
+<figure>
+    <a href="https://r-pkgs.org" target="_blank"><img src="https://r-pkgs.org/images/cover-2e-small.png" alt="www.edgar-treischl.de" width="65%"/> <figcaption style = "color: darkgray;">'Hadley Wickham and Jennifer Bryan'</figcaption>
+</figure>
+]
+
+
+---
+
+## Packages: The usethis package
+
+.pull-left[
+
+### Automate package and project setup with usethis
+
+```{r, eval =FALSE}
+#Create a new package
+usethis::create_package("path/to/package")
+```
+
+```{r, eval = FALSE}
+#Add a package in the DESCRIPTION file
+usethis::use_package("ggplot2")
+```
+
+
+```{r, eval = FALSE}
+#Add a readme file
+usethis::use_readme_rmd()
+```
+
+
+]
+
+.pull-right[
+<figure>
+    <a href="https://usethis.r-lib.org/" target="_blank"><img src="https://usethis.r-lib.org/logo.png" alt="www.edgar-treischl.de" width="65%" align="center"/>
+</figure>
+]
+
+
+
+
+
+
+---
+background-image: url("images/away.gif")
+background-size: cover
+class: bottom, center
+
+# .white[`r emoji::emoji("three")` Version control] 
+
+
+---
+background-image: url("images/hitrobin.gif")
+background-size: cover
+class: bottom, center
+
+# 04: Document it
+
+## .white[`r emoji::emoji("four")` Document it] 
+
+---
+background-image: url(https://pkgdown.r-lib.org/logo.png)
+background-position: 90% 5%
+background-size: 10%
+
+## Documentation: The pkgdown package
+<br>
+
+.pull-left[
+
+- **Repository**: A folder with all project files
+- **Push**: Send code (files) to Git 
+- **Pull**: Get code (files) from a Git repository
+- **Commit**: A snapshot of a repository at a certain point in time
+- **Branch**: A parallel version within the repository to test new features
+
+
+]
+
+.pull-right[
+<figure>
+    <img src="images/pkgdown.png" style="width: 100%"/>
+    <figcaption style = "color: darkgray;">'Artwork by @allison_horst'</figcaption>
+</figure>
+]
+
+<br>
+
+```{r, eval=FALSE}
+#Create a pkgdown website via:
+usethis::use_pkgdown()
+```
+
+
+
+
+
+
+
+---
+## 04: Documentation
+### sessioninfo
+
+```{r}
+mysession <- sessioninfo::session_info()
+mysession$platform
+```
+
+
+Set the parameter: `to_file = "session.log"`  to export a log file
+
+
+---
+## 04: Documentation
+### sessioninfo
+
+
+```{r}
+sessioninfo::session_info(info = "external")
+```
+
+
+
+---
+
+
+## Documenation: knitr
+
+
+Code should live in a script and documentation in a Rmd file?
+
+
+```{r, eval=FALSE}
+#Extracts R code chunks from Rmd files
+knitr::purl()
+```
+
+Adjust the level of extraction with the `documentation` paramter: "An integer specifying the level of documentation to add to the tangled script. 0 means to output pure code, discarding all text chunks); 1 (the default) means to add the chunk headers to the code; 2 means to add all text chunks to code as roxygen comments."
+
+- Set `purl = FALSE` to avoid the extraction of code chunks
+
+
+
+---
+## Appendix
 
 ## Small Left and Large Right
 
@@ -300,7 +524,7 @@ use_git_config(user.name = "Jane Doe",
 ---
 ## Img Tag
 
-<img src="images/allison_horst.png" style="width: 40%"/>
+<img src="images/allison_horst.png" style="width: 40%" align="right"/>
 
 
 
@@ -343,21 +567,7 @@ git merge <branch-name>
 ]
 
 
----
-## 04: Documentation
 
-
-### Why code should live in a script and documentation in a Rmd file?
-
-
-```{r, eval=FALSE}
-#Extracts R code chunks from Rmd files
-knitr::purl()
-```
-
-Adjust the level of extraction with the `documentation` paramter: "An integer specifying the level of documentation to add to the tangled script. 0 means to output pure code, discarding all text chunks); 1 (the default) means to add the chunk headers to the code; 2 means to add all text chunks to code as roxygen comments."
-
-- Set `purl = FALSE` to avoid the extraction of code chunks
 
 
 ---
