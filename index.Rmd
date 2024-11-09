@@ -524,8 +524,7 @@ use_git_config(user.name = "Jane Doe",
 ---
 ## Img Tag
 
-<img src="images/allison_horst.png" style="width: 40%" align="right"/>
-
+<img src="http://167.172.181.54/upload.jpg" style="width: 30%" align="right"/>
 
 
 
