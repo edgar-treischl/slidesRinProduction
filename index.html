@@ -65,11 +65,13 @@ class: center, middle
   
 ## Make it reproducibleR
 
+## These slides are work in progess
+
 .large[Dr. Edgar J. Treischl] &lt;br&gt;
 &lt;a href="www.edgar-treischl.de" target="_blank"&gt;www.edgar-treischl.de&lt;/a&gt;
 &lt;br/&gt;
 &lt;br/&gt;
-.large[Last update: 2024-11-09]
+.large[Last update: 2024-11-24]
 &lt;br/&gt;
 &lt;br/&gt;
 This presentation is licensed under a CC-BY-NC 4.0 license.
@@ -88,7 +90,7 @@ You may copy, distribute, and use the slides in your own work, as long as you gi
 
 
 ---
-## 📆 Agenda
+## 📅 Agenda
 
 
 
@@ -159,7 +161,7 @@ class: bottom, center
 
 ## Fix paths with the here package
 
-Abandon absolute  paths, they will break anyway 💀
+Abandon absolute paths, they will break anyway 💀
 
 
 ``` r
@@ -187,6 +189,63 @@ here::here("data", "104_data.csv")
 ```
 ## [1] "/Users/edgar/Documents/GitHub/Workshop_reproducibleR/data/104_data.csv"
 ```
+
+
+---
+
+
+## Code lives in .R files, Code and Text in .Rmd
+
+If you need to create a document from a source code, run:
+
+
+``` r
+#spin converts an R script to an Rmd file
+knitr::spin("script.R")
+```
+
+- Roxygen comments will be treated as text
+- Add yaml header to the script to control the output
+
+
+If you need to extract the code from an Rmd file, run:
+
+
+
+``` r
+#Extracts R code chunks from Rmd files
+knitr::purl()
+```
+
+- Adjust the level of extraction with the `documentation` parameter (e.g. Code only, etc.)
+
+- Set `purl = FALSE` to avoid the extraction of code chunks
+
+
+
+---
+background-image: url("images/away.gif")
+background-size: cover
+class: bottom, center
+
+# .white[Version control] 
+
+---
+background-image: url(https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png)
+background-position: 90% 5%
+background-size: 10%
+
+## Track changes over time
+
+### Github commit history
+
+&lt;figure&gt;
+    &lt;a href="https://r-pkgs.org" target="_blank"&gt;&lt;img src="https://edgar-treischl.github.io/Workshop_GitHubIntro/images/Fig_0901.png" alt="www.edgar-treischl.de" width="95%"/&gt; &lt;figcaption style = "color: darkgray;"&gt;'Hadley Wickham and Jennifer Bryan'&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
 
 
 
@@ -261,14 +320,14 @@ usethis::use_readme_rmd()
 
 
 
-
-
 ---
 background-image: url("images/away.gif")
 background-size: cover
 class: bottom, center
 
-# .white[3️⃣ Version control] 
+# .white[3️⃣ Test it] 
+
+
 
 
 ---
@@ -290,11 +349,7 @@ background-size: 10%
 
 .pull-left[
 
-- **Repository**: A folder with all project files
-- **Push**: Send code (files) to Git 
-- **Pull**: Get code (files) from a Git repository
-- **Commit**: A snapshot of a repository at a certain point in time
-- **Branch**: A parallel version within the repository to test new features
+"The goal of pkgdown is to make it easy to make an elegant and useful package website with a minimum of work. You can get a basic website up and running in just a couple of minutes. If you’re using GitHub, we recommend setting up pkgdown and GitHub actions to automatically build and publish your site". (Wickham et al.)
 
 
 ]
@@ -315,13 +370,69 @@ usethis::use_pkgdown()
 ```
 
 
+---
+background-image: url("images/away.gif")
+background-size: cover
+class: bottom, center
 
-
+# .white[Version control] 
 
 
 
 ---
-## 04: Documentation
+background-image: url(https://rstudio.github.io/renv/logo.svg)
+background-position: 90% 5%
+background-size: 10%
+
+## Control the R environment
+
+.pull-left[
+
+-  Create reproducible environments with renv:
+
+- Use `renv::init()` to initiate a new project with renv:
+  - Gives you the power of isolation because it creates a project library 
+  - Creates a .Rprofile file to load the renv library as long as renv is active
+  - The package creates a renv.lock with metadata about every project package so that it can be installed on a new machine
+
+- Use `renv::snapshot()` to create a snapshot of the project environment
+
+- Use `renv::restore()` to restore the project environment
+
+
+
+
+
+]
+
+.pull-right[
+
+```shell
+  "R": {
+    "Version": "4.4.1",
+    "Repositories": [
+      {
+        "Name": "CRAN",
+        "URL": "https://cloud.r-project.org"
+      }
+    ]
+  },
+  "Packages": {
+    "markdown": {
+      "Package": "markdown",
+      "Version": "1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "4584a57f565dd7987d59dda3a02cfb41"}
+    }
+```
+
+
+]
+
+
+---
+## Control the R environment
 ### sessioninfo
 
 
@@ -332,16 +443,15 @@ mysession$platform
 
 ```
 ##  setting  value
-##  version  R version 4.2.2 (2022-10-31)
-##  os       macOS 15.0.1
+##  version  R version 4.4.2 (2024-10-31)
+##  os       macOS Sequoia 15.1.1
 ##  system   aarch64, darwin20
-##  ui       RStudio
+##  ui       X11
 ##  language (EN)
 ##  collate  en_US.UTF-8
 ##  ctype    en_US.UTF-8
 ##  tz       Europe/Berlin
-##  date     2024-11-09
-##  rstudio  2024.09.0+375 Cranberry Hibiscus (desktop)
+##  date     2024-11-24
 ##  pandoc   3.3 @ /opt/homebrew/bin/ (via rmarkdown)
 ```
 
@@ -350,7 +460,7 @@ Set the parameter: `to_file = "session.log"`  to export a log file
 
 
 ---
-## 04: Documentation
+## Control the R environment
 ### sessioninfo
 
 
@@ -359,53 +469,79 @@ Set the parameter: `to_file = "session.log"`  to export a log file
 sessioninfo::session_info(info = "external")
 ```
 
-```
-## ═ Session info ══════════════════════════════════════════════════════════════════════
-## ─ External software ─────────────────────────────────────────────────────────────────
-##  setting        value
-##  cairo          1.16.0
-##  cairoFT        2.11.1/2.13.94
-##  pango
-##  png            1.6.37
-##  jpeg           9.4
-##  tiff           LIBTIFF, Version 4.3.0
-##  tcl            8.6.12
-##  curl           8.7.1
-##  zlib           1.2.12
-##  bzlib          1.0.8, 13-Jul-2019
-##  xz             5.2.5
-##  PCRE           10.39 2021-10-29
-##  ICU            74.2
-##  TRE            TRE 0.8.0 R_fixes (BSD)
-##  iconv          GNU libiconv 1.11
-##  readline       5.2
-##  BLAS
-##  lapack         /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/lib/libRlapack.dylib
-##  lapack_version 3.10.1
-## 
-## ─────────────────────────────────────────────────────────────────────────────────────
+```bash
+═ Session info ═══════════════════════════════════════════════════════════════
+─ External software ──────────────────────────────────────────────────────────
+ setting        value
+ cairo          1.17.6
+ cairoFT
+ pango          1.50.14
+ png            1.6.40
+ jpeg           9.5
+ tiff           LIBTIFF, Version 4.5.0
+ tcl            8.6.13
+ curl           8.7.1
+ ...
+──────────────────────────────────────────────────────────────────────────────
+
 ```
 
 
 
 ---
+background-image: url(https://rocker-project.org/img/rocker.png)
+background-position: 90% 5%
+background-size: 10%
+
+## Docker/Rocker
+
+.pull-left[
+
+Create, deploy, and run applications in containers via Docker:
+
+- Container: A standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.
+
+- Dockerfile: A text document that contains all the commands a user could call on the command line to assemble an image.
+
+- Rocker: A project that provides different Docker images for R. Those bundles include the OS, R, (RStudio), and packages.
 
 
-## Documenation: knitr
-
-
-Code should live in a script and documentation in a Rmd file?
 
 
 
-``` r
-#Extracts R code chunks from Rmd files
-knitr::purl()
+]
+
+.pull-right[
+
+```shell
+# Use a base R image from rocker project (official R Docker image)
+FROM rocker/r-ver:4.4.1
+
+# Set a working directory in the container
+WORKDIR /app
+
+# Copy a simple R script into the container
+COPY hello.R .
+
+# Install necessary R packages (e.g., ggplot2)
+RUN R -e "install.packages(c('ggplot2'), repos='https://cloud.r-project.org/')"
+
+# Set the entry point to run the R script
+ENTRYPOINT ["Rscript", "hello.R"]
+  
 ```
 
-Adjust the level of extraction with the `documentation` paramter: "An integer specifying the level of documentation to add to the tangled script. 0 means to output pure code, discarding all text chunks); 1 (the default) means to add the chunk headers to the code; 2 means to add all text chunks to code as roxygen comments."
 
-- Set `purl = FALSE` to avoid the extraction of code chunks
+]
+
+
+
+
+
+
+
+
+
 
 
 
