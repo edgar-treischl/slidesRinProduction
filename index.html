@@ -12,6 +12,7 @@
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="styles.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -65,13 +66,14 @@ class: center, middle
   
 ## Make it reproducibleR
 
-## These slides are work in progess
+
+### These slides are work in progess
 
 .large[Dr. Edgar J. Treischl] &lt;br&gt;
 &lt;a href="www.edgar-treischl.de" target="_blank"&gt;www.edgar-treischl.de&lt;/a&gt;
 &lt;br/&gt;
 &lt;br/&gt;
-.large[Last update: 2024-11-24]
+.large[Last update: 2024-12-20]
 &lt;br/&gt;
 &lt;br/&gt;
 This presentation is licensed under a CC-BY-NC 4.0 license.
@@ -98,10 +100,13 @@ You may copy, distribute, and use the slides in your own work, as long as you gi
 
 .pull-left[
 
-### 1️⃣ Common concerns
-### 2️⃣  Packages
-### 3️⃣  Versioncontrol
-### 4️⃣  Documentation
+
+### 1️⃣ Develop
+### 2️⃣  Build
+### 3️⃣  Document
+### 4️⃣  Deploy
+
+
 
 
 
@@ -109,7 +114,6 @@ You may copy, distribute, and use the slides in your own work, as long as you gi
 
 .pull-right[
 
-&lt;img src="images/IExcel.png" style="width: 80%" align="center"/&gt;
 
 ]
 
@@ -122,18 +126,17 @@ background-size: cover
 class: bottom, center
 
 
-# Common concerns
 
-## .white[1️⃣ Bad habits ] 
+## .white[1️⃣ Get Rid of Bad Habits ] 
 
 
 
 ---
-## Start with a clean slate (from Bryan et al. 2021)
+## 01 Develop: Start with a clean slate 
 
 .pull-left[
 
-- Start with a clean slate and restart R: Do not save the workspace and do not load the workspace from an `.Rdata` file.
+- Based on Bryan et al. 2021: Start with a clean slate and restart R: Do not save the workspace and do not load the workspace from an `.Rdata` file. 
 
 
 ### Abandon the rm approach 💀
@@ -151,17 +154,21 @@ class: bottom, center
 .pull-right[
 &lt;figure&gt;
     &lt;img src="https://rstats.wtf/img/rstudio-workspace.png" style="width: 100%"/&gt;
-    &lt;figcaption style = "color: darkgray;"&gt;'Artwork by @allison_horst'&lt;/figcaption&gt;
 &lt;/figure&gt;
 ]
 
+---
+
+## Don't Go Places Where You Don't Belong
+
+&lt;img src="images/drake.png" style="width: 65%"/&gt;
 
 
 ---
 
-## Fix paths with the here package
+## 01 Develop: Fix paths
 
-Abandon absolute paths, they will break anyway 💀
+Abandon absolute paths, they will break anyway 💀. Fix paths with the `here` package:
 
 
 ``` r
@@ -181,22 +188,31 @@ here::here()
 ## [1] "/Users/edgar/Documents/GitHub/Workshop_reproducibleR"
 ```
 
+
+
 ``` r
 #Create a path to the data file
-here::here("data", "104_data.csv")
+here::here("data", "descriptive_title.csv")
 ```
 
 ```
-## [1] "/Users/edgar/Documents/GitHub/Workshop_reproducibleR/data/104_data.csv"
+## [1] "/Users/edgar/Documents/GitHub/Workshop_reproducibleR/data/descriptive_title.csv"
 ```
+
+
+
+
+
+
+
 
 
 ---
 
 
-## Code lives in .R files, Code and Text in .Rmd
+## 01 Develop: R vs. Rmd
 
-If you need to create a document from a source code, run:
+Code lives in .R files, Code and Text in .Rmd If you need to create a document from a source code, run:
 
 
 ``` r
@@ -228,21 +244,109 @@ background-image: url("images/away.gif")
 background-size: cover
 class: bottom, center
 
+
 # .white[Version control] 
 
 ---
 background-image: url(https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png)
 background-position: 90% 5%
-background-size: 10%
+background-size: 8%
 
-## Track changes over time
+## 01 Develop: With Git(Hub)
 
-### Github commit history
+### Track changes over time
 
 &lt;figure&gt;
     &lt;a href="https://r-pkgs.org" target="_blank"&gt;&lt;img src="https://edgar-treischl.github.io/Workshop_GitHubIntro/images/Fig_0901.png" alt="www.edgar-treischl.de" width="95%"/&gt; &lt;figcaption style = "color: darkgray;"&gt;'Hadley Wickham and Jennifer Bryan'&lt;/figcaption&gt;
 &lt;/figure&gt;
 
+
+
+---
+background-image: url(https://styler.r-lib.org/reference/figures/logo.png)
+background-position: 90% 5%
+background-size: 8%
+
+## 01 Develop: With Style(r)
+
+&lt;br/&gt;
+
+
+.pull-left[
+
+&lt;div class="info-box"&gt;
+  &lt;i&gt;ℹ️️&lt;/i&gt; "styler formats your code according to the tidyverse style guide (https://style.tidyverse.org) (or your custom style guide) so you can direct your attention to the content of your code".
+&lt;/div&gt;
+
+
+]
+
+.pull-right[
+
+
+``` r
+styler::style_text(
+  "myFunction&lt;-function( x,y){
+  if(sum( x , y )==10){
+    print( 'Sum is correct!' )
+  }
+}"
+)
+```
+
+```
+## myFunction &lt;- function(x, y) {
+##   if (sum(x, y) == 10) {
+##     print("Sum is correct!")
+##   }
+## }
+```
+
+]
+
+
+
+
+
+
+
+
+---
+background-image: url(https://github.com/r-lib/lintr/blob/main/man/figures/logo.png)
+background-position: 90% 5%
+background-size: 8%
+
+## 01 Develop: Lint
+
+&lt;br/&gt;
+
+.pull-left[
+
+&lt;div class="info-box"&gt;
+  &lt;i&gt;⚡️&lt;/i&gt;"lintr provides static code analysis for R. It checks for adherence to a given style, identifying syntax errors and possible semantic issues, then reports them to you so you can take action. ".
+&lt;/div&gt;
+
+
+]
+
+.pull-right[
+
+
+``` r
+lintr::lint(text = 'myFunction &lt;- function(x, y) {
+  if (sum(x, y) == 10) {
+    print("Sum is correct!")
+  }
+}')
+```
+
+```
+## &lt;text&gt;:1:1: style: [object_name_linter] Variable and function name style should match snake_case or symbols.
+## myFunction &lt;- function(x, y) {
+## ^~~~~~~~~~
+```
+
+]
 
 
 
@@ -256,20 +360,20 @@ background-image: url("images/superman.gif")
 background-size: cover
 class: bottom, center
 
-# Packages
 
-## .white[2️⃣ Package it] 
+## .white[2️⃣ Build] 
 
 
 ---
-## Packages: R Packages
+## 02 Build: R Packages
 
 .pull-left[
 
-### Make a package because ... 
 
-- **Quality insurance**: Make sure everything is under the hood
-- **Travel back in time**: Package version 
+- *Reusability and Distribution*: Make sure everything is under the hood and share with the world. Plus: simplifies version control, dependency management, and installation
+- *Organization and Maintainability*: A package encourages a clean and organized structure for your code (functions, documentation, tests), making it easier to maintain, update, and extend over time.
+
+- *Documentation*: A package allows you to include automatic documentation (help files, website, vignettes) , making it much easier for others - and the future yourself - to understand how it works.
 
 
 ]
@@ -281,9 +385,9 @@ class: bottom, center
 ]
 
 
----
 
-## Packages: The usethis package
+---
+## 02 Build: usethis
 
 .pull-left[
 
@@ -318,73 +422,342 @@ usethis::use_readme_rmd()
 ]
 
 
-
-
 ---
-background-image: url("images/away.gif")
-background-size: cover
-class: bottom, center
-
-# .white[3️⃣ Test it] 
-
-
-
-
----
-background-image: url("images/hitrobin.gif")
-background-size: cover
-class: bottom, center
-
-# 04: Document it
-
-## .white[4️⃣ Document it] 
-
----
-background-image: url(https://pkgdown.r-lib.org/logo.png)
+background-image: url(https://usethis.r-lib.org/logo.png)
 background-position: 90% 5%
-background-size: 10%
-
-## Documentation: The pkgdown package
-&lt;br&gt;
+background-size: 8%
+## 02 Build: Github Actions
 
 .pull-left[
 
-"The goal of pkgdown is to make it easy to make an elegant and useful package website with a minimum of work. You can get a basic website up and running in just a couple of minutes. If you’re using GitHub, we recommend setting up pkgdown and GitHub actions to automatically build and publish your site". (Wickham et al.)
+Continuous Integration/Continuous Deployment:
+
+1. *Reliability via Automated Testing*: We can automatically run tests on every commit, ensuring that code changes don't break functionality.
+
+2. *Consistent Environments*: CI/CD pipelines define reproducible environments, ensuring that the code runs the same way on every machine, regardless the local setup.
+
+3. *Effortless Deployment*: With GitHub Actions, you can automate the deployment of R Markdown reports, Shiny apps, R packages, and so on.
+
+]
+
+.pull-right[
+
+```yaml
+# Workflow from: https://github.com/r-lib/actions/tree/v2/examples
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+name: R-CMD-check
+
+jobs:
+  R-CMD-check:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      R_KEEP_PKG_SOURCE: yes
+    steps:
+      - uses: actions/checkout@v3
+
+...
+```
+
+]
+
+
+---
+background-image: url(https://usethis.r-lib.org/logo.png)
+background-position: 90% 5%
+background-size: 8%
+
+## 02 Build: Github Actions and usethis
+
+
+
+Usethis has predefined worksflows for:
+
+- R CMD check
+- test coverage
+- ...
+
+
+``` r
+usethis::use_github_action()
+# Which action do you want to add? (0 to exit)
+# (See &lt;https://github.com/r-lib/actions/tree/v2/examples&gt; for other options) 
+# 
+# 1: check-standard: Run `R CMD check` on Linux, macOS, and Windows
+# 2: test-coverage: Compute test coverage and report to https://about.codecov.io
+# 3: pr-commands: Add /document and /style commands for pull requests
+```
+
+
+---
+background-image: url("images/test.gif")
+background-size: cover
+class: bottom, center
+
+# .white[🕷️ Don't forget to test] 
+
+
+---
+background-image: url(https://testthat.r-lib.org/logo.png)
+background-position: 90% 5%
+background-size: 8%
+## 02 Build: testthat
+
+&lt;br/&gt;
+
+&lt;div class="info-box"&gt;
+  &lt;i&gt;ℹ️&lt;/i&gt; "Testing your code can be painful and tedious, but it greatly increases the quality of your code. testthat tries to make testing as fun as possible, so that you get a visceral satisfaction from writing tests. Testing should be addictive, so you do it all the time."
+&lt;/div&gt;
+
+&lt;br/&gt;
+
+.pull-left[
+
+
+``` r
+#Set up the test infrastructure
+# And build a test
+usethis::use_test("name")
+```
+
+]
+
+.pull-right[
+
+&lt;img src="images/testRStudio.png" style="width: 90%"/&gt;
+
+]
+
+
+---
+background-image: url(https://covr.r-lib.org/reference/figures/logo.png)
+background-position: 90% 5%
+background-size: 8%
+## 02 Build: covr
+
+
+.panelset[
+
+.panel[.panel-name[Test Coverage]
+
+.pull-left[
+"Track test coverage for your R package and view reports locally or (optionally) upload the results to codecov or coveralls."
+
+- Bullet point A
+- Bullet point B
+- Bullet point C
+
+]
+.pull-right[
+
+``` r
+#Set up the test infrastructure
+# And build a test
+usethis::use_test("name")
+```
+
+]
+
+
+]
+
+.panel[.panel-name[Report]
+
+&lt;img src="images/covr1.png" style="width: 50%"/&gt;
+
+]
+
+.panel[.panel-name[Tracked Source]
+ &lt;img src="images/covr.png" style="width: 80%"/&gt;
+]
+
+.panel[.panel-name[...]
+
+- Work together
+- Host websites for projects
+- GitHub Gist
+- ...
+
+]
+]
+
+
+
+
+
+---
+background-image: url("images/document.gif")
+background-size: cover
+class: bottom, center
+
+
+## .red[4️⃣ Document it] 
+
+
+---
+background-image: url(https://roxygen2.r-lib.org/logo.png)
+background-position: 90% 5%
+background-size: 8%
+## 03 Document: roxygen2
+
+.pull-left[
+
+### Describe your functions and ...
+
+&lt;div class="info-box"&gt;
+  &lt;i&gt;🪄️&lt;/i&gt; "... roxygen2 will process your source code and comments to automatically generate .Rd files in man/, NAMESPACE, and, if needed, the Collate field in DESCRIPTION.". (XX et al.)
+&lt;/div&gt;
+
+
+
+- Help files for your functions will be available
+
+- The pkgdown package will use the roxygen2 comments to create a website for your package
+
+]
+
+.pull-right[
+
+
+
+``` r
+#' Function title
+#' 
+#' @description What does this `add` function.
+#' 
+#' @param x Function parameter.
+#' @param y Function parameter.
+#'
+#' @return A number.
+#'
+#' @examples
+#' add(1, 1)
+
+#' @export
+add &lt;- function(x, y) {
+  x + y
+}
+```
+
+]
+
+---
+
+
+## 03 Document: pkgdown
+
+.pull-left[
+
+&lt;div class="info-box"&gt;
+  &lt;i&gt;ℹ️&lt;/i&gt; "The goal of pkgdown is to make it easy to make an elegant and useful package website with a minimum of work. You can get a basic website up and running in just a couple of minutes. If you’re using GitHub, we recommend setting up pkgdown and GitHub actions to automatically build and publish your site". (Wickham et al.)
+&lt;/div&gt;
 
 
 ]
 
 .pull-right[
 &lt;figure&gt;
-    &lt;img src="images/pkgdown.png" style="width: 100%"/&gt;
-    &lt;figcaption style = "color: darkgray;"&gt;'Artwork by @allison_horst'&lt;/figcaption&gt;
+    &lt;a href="https://pkgdown.r-lib.org" target="_blank"&gt;&lt;img src="https://pkgdown.r-lib.org/logo.png" alt="https://pkgdown.r-lib.org" width="65%" align="right"/&gt;
 &lt;/figure&gt;
 ]
 
 &lt;br&gt;
 
 
-``` r
-#Create a pkgdown website via:
-usethis::use_pkgdown()
-```
+
+
+
+
 
 
 ---
-background-image: url("images/away.gif")
+background-image: url(https://pkgdown.r-lib.org/logo.png)
+background-position: 90% 5%
+background-size: 8%
+
+## 03 Document: pkgdown
+&lt;br&gt;
+&lt;br&gt;
+&lt;img src="images/pkgdown.png" style="width: 90%"/&gt;
+
+
+
+---
+background-image: url(https://pkgdown.r-lib.org/logo.png)
+background-position: 90% 5%
+background-size: 8%
+
+## 03 Document: pkgdown
+
+### Create a pkgdown website via:
+
+.pull-left[
+
+
+``` r
+#usethis creates config file: =&gt; _pkgdown.yml config file
+usethis::use_pkgdown()
+
+#Build the website via:
+pkgdown::build_site()
+```
+
+### 🚀 via GitHub Actions:
+
+
+``` r
+#Add corresponding GHA to deploy each time you push to GitHub
+usethis::use_pkgdown_github_pages
+```
+
+
+
+
+]
+
+.pull-right[
+
+```yaml
+# _pkgdown.yml
+url: https://edgar-treischl.github.io/ProjectX/
+template:
+  bootstrap: 5
+  bootswatch: litera
+  bslib:
+    base_font: {google: "Solway"}
+    heading_font: {google: "Solway"}
+navbar:
+...
+```
+
+
+]
+
+
+
+
+
+---
+background-image: url("images/document.gif")
 background-size: cover
 class: bottom, center
 
-# .white[Version control] 
+# 04 Deploy
 
 
 
 ---
 background-image: url(https://rstudio.github.io/renv/logo.svg)
 background-position: 90% 5%
-background-size: 10%
+background-size: 8%
 
-## Control the R environment
+## 04 Deploy: Control the R environment
 
 .pull-left[
 
@@ -432,8 +805,7 @@ background-size: 10%
 
 
 ---
-## Control the R environment
-### sessioninfo
+## 04 Deploy: sessioninfo
 
 
 ``` r
@@ -446,12 +818,13 @@ mysession$platform
 ##  version  R version 4.4.2 (2024-10-31)
 ##  os       macOS Sequoia 15.1.1
 ##  system   aarch64, darwin20
-##  ui       X11
+##  ui       RStudio
 ##  language (EN)
 ##  collate  en_US.UTF-8
 ##  ctype    en_US.UTF-8
 ##  tz       Europe/Berlin
-##  date     2024-11-24
+##  date     2024-12-20
+##  rstudio  2024.12.0+467 Kousa Dogwood (desktop)
 ##  pandoc   3.3 @ /opt/homebrew/bin/ (via rmarkdown)
 ```
 
@@ -491,9 +864,9 @@ sessioninfo::session_info(info = "external")
 ---
 background-image: url(https://rocker-project.org/img/rocker.png)
 background-position: 90% 5%
-background-size: 10%
+background-size: 8%
 
-## Docker/Rocker
+## 04 Deploy: docker/rocker
 
 .pull-left[
 
@@ -544,214 +917,6 @@ ENTRYPOINT ["Rscript", "hello.R"]
 
 
 
-
----
-## Appendix
-
-## Small Left and Large Right
-
-.left-column[
-&lt;br/&gt;
-&lt;a href="https://git-scm.com/" target="_blank"&gt;&lt;img src="https://git-scm.com/images/logo@2x.png" style="width: 70%"/&gt;&lt;/a&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;a href="https://github.com" target="_blank"&gt;&lt;img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="Github" width="60%"/&gt;&lt;/a&gt;
-
-]
-
-.right-column[
-- Git is a version control system to track changes over time
-- Continuous integration (CI) and continuous deployment (CD)
-- GitHub is an host (website) for Git-based projects
-- Each project is stored in a repository (folder with all files)
-- A repository can be *public* or *private*
-
-
-
-
-]
-
-
-
-
-
-
-
-
-
----
-## Tabs
-
-
-.panelset[
-.panel[.panel-name[Track Code]
-
-&lt;img src="images/allison_horst.png" style="width: 40%"/&gt;
-]
-
-.panel[.panel-name[Share Code]
-
-.pull-left[
-
-``` r
-#Source the script from the raw github link
-#The raw github link
-link &lt;- "https://raw.githubusercontent.com/
-        edgar-treischl/.../file.R"
-
-#source_url: Source a script from a url
-devtools::source_url(link)
-```
-
-
-``` r
-#runGitHub: Run a shiny app from GitHub
-shiny::runGitHub("power-app", 
-                 "edgar-treischl", 
-                 ref="main")
-```
-
-]
-.pull-right[
-&lt;img src="images/plot-last-1.png" style="width: 90%"/&gt;
-]
-
-
-]
-
-.panel[.panel-name[Automate workflows]
-
-.pull-left[
-
-```yaml
-on:
-  push:
-    branches: [main, master]
-    
-jobs:
-  pkgdown:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: my_script.R
-```
-
-
-]
-
-.pull-right[
-&lt;img src="images/allison_horst.png" style="width: 80%"/&gt;
-]
-]
-
-.panel[.panel-name[...]
-
-- Work together
-- Host websites for projects
-- GitHub Gist
-- ...
-
-]
-]
-
-
-
-
-
-
-
-
-
-
----
-background-image: url(https://usethis.r-lib.org/logo.png)
-background-position: 90% 5%
-background-size: 10%
-
-## Logos in the Header
-
-
-### Bla bla
-
-
-
-``` r
-library(usethis)
-use_git_config(user.name = "Jane Doe",
-               user.email = "jane@example.org")
-```
-
-
-
-
-
----
-## pull-left and pull-right
-
-.pull-left[
-
-- **Repository**: A folder with all project files
-- **Push**: Send code (files) to Git 
-- **Pull**: Get code (files) from a Git repository
-- **Commit**: A snapshot of a repository at a certain point in time
-- **Branch**: A parallel version within the repository to test new features
-
-
-]
-
-.pull-right[
-&lt;figure&gt;
-    &lt;img src="images/allison_horst.png" style="width: 100%"/&gt;
-    &lt;figcaption style = "color: darkgray;"&gt;'Artwork by @allison_horst'&lt;/figcaption&gt;
-&lt;/figure&gt;
-]
-
-
-
-
----
-## Img Tag
-
-&lt;img src="http://167.172.181.54/upload.jpg" style="width: 30%" align="right"/&gt;
-
-
-
----
-## Fig Caption
-
-.pull-left[
-
-```bash
-#git add: Add a file to the staging area
-git add &lt;file-name-1&gt;
-
-#-A: Add all files to the staging area
-git add -A
-
-#git commit -am: Commit changes
-git commit -am &lt;commit-message&gt;
-
-#git push: Push changes to the remote rep
-git push &lt;remote&gt; &lt;branch-name&gt;
-
-#git pull: Pull changes from the remote rep
-git pull
-
-#git merge: Merge two branches
-git merge &lt;branch-name&gt;
-```
-
-
-]
-
-.pull-right[
-&lt;br/&gt;
-&lt;br/&gt;
-&lt;figure&gt;
-    &lt;img src="images/allison_horstgf.png" style="width: 100%"/&gt;
-    &lt;figcaption style = "color: darkgray;"&gt;'Artwork by @allison_horst'&lt;/figcaption&gt;
-&lt;/figure&gt;
-]
 
 
 
