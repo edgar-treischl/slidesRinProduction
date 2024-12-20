@@ -139,16 +139,16 @@ class: bottom, center
 
 
 
-## .white[`r emoji::emoji("one")` Get Rid of Bad Habits ] 
+## .white[Develop, but get rid of bad habits first `r emoji::emoji("smile")`] 
 
 
 
 ---
-## 01 Develop: Start with a clean slate 
+## 01: Start with a clean slate 
 
 .pull-left[
 
-- Based on Bryan et al. 2021: Start with a clean slate and restart R: Do not save the workspace and do not load the workspace from an `.Rdata` file. 
+- Start with a clean slate and restart R: Do not save the workspace and do not load the workspace from an `.Rdata` file (Based on Bryan et al. 2021). 
 
 
 ### Abandon the rm approach `r emoji::emoji("skull")`
@@ -171,16 +171,18 @@ class: bottom, center
 
 ---
 
-## Don't Go Places Where You Don't Belong
+## 01: Don't Go Places Where You Don't Belong
 
 <img src="images/drake.png" style="width: 65%"/>
 
 
 ---
 
-## 01 Develop: Fix paths
+## 01: Fix paths with the here package
 
-Abandon absolute paths, they will break anyway `r emoji::emoji("skull")`. Fix paths with the `here` package:
+### Abandon absolute paths, they will break anyway `r emoji::emoji("skull")`. 
+
+
 
 ```{r, eval=FALSE}
 #Don't:
@@ -211,9 +213,11 @@ here::here("data", "descriptive_title.csv")
 ---
 
 
-## 01 Develop: R vs. Rmd
+## 01: R vs. Rmd
 
-Code lives in .R files, Code and Text in .Rmd If you need to create a document from a source code, run:
+### `r emoji::emoji("finger")` Code lives in .R files, Code and Text in Rmd. 
+
+If you need to create a document from a source code, run:
 
 ```{r, eval=FALSE}
 #spin converts an R script to an Rmd file
@@ -233,7 +237,6 @@ knitr::purl()
 ```
 
 - Adjust the level of extraction with the `documentation` parameter (e.g. Code only, etc.)
-
 - Set `purl = FALSE` to avoid the extraction of code chunks
 
 
@@ -244,14 +247,14 @@ background-size: cover
 class: bottom, center
 
 
-# .white[Version control] 
+# .red[Keep your version under control] 
 
 ---
 background-image: url(https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png)
 background-position: 90% 5%
 background-size: 8%
 
-## 01 Develop: With Git(Hub)
+## 01: Git(Hub)
 
 ### Track changes over time
 
@@ -266,9 +269,7 @@ background-image: url(https://styler.r-lib.org/reference/figures/logo.png)
 background-position: 90% 5%
 background-size: 8%
 
-## 01 Develop: With Style(r)
-
-<br/>
+## 01: Develop With Style(r)
 
 
 .pull-left[
@@ -307,7 +308,7 @@ background-image: url(https://github.com/r-lib/lintr/blob/main/man/figures/logo.
 background-position: 90% 5%
 background-size: 8%
 
-## 01 Develop: Lint
+## 01: Lint
 
 <br/>
 
@@ -345,7 +346,7 @@ background-size: cover
 class: bottom, center
 
 
-## .white[`r emoji::emoji("two")` Build] 
+## .white[`r emoji::emoji("muscle")` Build] 
 
 
 ---
@@ -454,7 +455,7 @@ background-image: url(https://usethis.r-lib.org/logo.png)
 background-position: 90% 5%
 background-size: 8%
 
-## 02 Build: Github Actions and usethis
+## 02: Github Actions and usethis
 
 
 
@@ -480,14 +481,14 @@ background-image: url("images/test.gif")
 background-size: cover
 class: bottom, center
 
-# .white[`r emoji::emoji("spider")` Don't forget to test] 
+# .black[... but don't forget to test `r emoji::emoji("silly")`] 
 
 
 ---
 background-image: url(https://testthat.r-lib.org/logo.png)
 background-position: 90% 5%
 background-size: 8%
-## 02 Build: testthat
+## 02: testthat
 
 <br/>
 
