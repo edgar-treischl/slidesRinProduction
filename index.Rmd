@@ -341,12 +341,12 @@ lintr::lint(text = 'myFunction <- function(x, y) {
 
 
 ---
-background-image: url("images/superman.gif")
+background-image: url("images/gotham.gif")
 background-size: cover
 class: bottom, center
 
 
-## .white[`r emoji::emoji("muscle")` Build] 
+## .white[Let's build ... `r emoji::emoji("evil")`] 
 
 
 ---
@@ -571,12 +571,12 @@ usethis::use_test("name")
 
 
 ---
-background-image: url("images/document.gif")
+background-image: url("images/ordinary.gif")
 background-size: cover
 class: bottom, center
 
 
-## .red[`r emoji::emoji("four")` Document it] 
+## .red[Documentation] 
 
 
 ---
@@ -720,11 +720,14 @@ navbar:
 
 
 ---
-background-image: url("images/document.gif")
-background-size: cover
+background-image: url("images/wash.gif")
+background-size: contain
 class: bottom, center
 
-# 04 Deploy
+
+
+<br>
+## .black[Deploy] 
 
 
 
