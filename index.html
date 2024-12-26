@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>index.knit</title>
+    <title>Make it reproducibleR</title>
     <meta charset="utf-8" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <script src="libs/mark.js/mark.min.js"></script>
@@ -64,16 +64,14 @@ class: center, middle
 
 
   
-## Make it reproducibleR
-
-
-### These slides are work in progess
+# Make it reproducibleR
+## These slides are work in progess
 
 .large[Dr. Edgar J. Treischl] &lt;br&gt;
 &lt;a href="www.edgar-treischl.de" target="_blank"&gt;www.edgar-treischl.de&lt;/a&gt;
 &lt;br/&gt;
 &lt;br/&gt;
-.large[Last update: 2024-12-21]
+.large[Last update: 2024-12-26]
 &lt;br/&gt;
 &lt;br/&gt;
 This presentation is licensed under a CC-BY-NC 4.0 license.
@@ -127,16 +125,16 @@ class: bottom, center
 
 
 
-## .white[Develop, but get rid of bad habits first 😄] 
+# .white[Develop, but get rid of bad habits first 😄] 
 
 
 
 ---
-## 01: Start with a clean slate 
+## 01: Start with a clean slate ...
 
 .pull-left[
 
-- Start with a clean slate and restart R: Do not save the workspace and do not load the workspace from an `.Rdata` file (Based on Bryan et al. 2021). 
+- and restart R: Do not save the workspace and do not load the workspace from an `.Rdata` file (Based on Bryan et al. 2021). 
 
 
 ### Abandon the rm approach 💀
@@ -157,6 +155,7 @@ class: bottom, center
 &lt;/figure&gt;
 ]
 
+
 ---
 
 ## 01: Don't Go Places Where You Don't Belong
@@ -168,7 +167,7 @@ class: bottom, center
 
 ## 01: Fix paths with the here package
 
-### Abandon absolute paths, they will break anyway 💀. 
+### Abandon absolute paths, they will break anyway 💀
 
 
 
@@ -214,7 +213,7 @@ here::here("data", "descriptive_title.csv")
 
 ## 01: R vs. Rmd
 
-### 🤘 Code lives in .R files, Code and Text in Rmd. 
+### 🫵 Code lives in .R files, Code and Text in Rmd
 
 If you need to create a document from a source code, run:
 
@@ -224,7 +223,7 @@ If you need to create a document from a source code, run:
 knitr::spin("script.R")
 ```
 
-- Roxygen comments will be treated as text
+- Roxygen comments will be treated as text (more about that later)
 - Add yaml header to the script to control the output
 
 
@@ -237,7 +236,7 @@ If you need to extract the code from an Rmd file, run:
 knitr::purl()
 ```
 
-- Adjust the level of extraction with the `documentation` parameter (e.g. Code only, etc.)
+- Adjust the level of extraction with the `documentation` parameter (e.g., code only)
 - Set `purl = FALSE` to avoid the extraction of code chunks
 
 
@@ -362,7 +361,7 @@ background-size: cover
 class: bottom, center
 
 
-## .white[Let's build ... 🙊] 
+## .white[Let's build ... 🦹] 
 
 
 ---
@@ -501,7 +500,7 @@ background-image: url("images/test.gif")
 background-size: cover
 class: bottom, center
 
-# .black[... but don't forget to test 😜] 
+# .black[... but don't forget to test 👻] 
 
 
 ---
@@ -827,7 +826,7 @@ mysession$platform
 ##  collate  en_US.UTF-8
 ##  ctype    en_US.UTF-8
 ##  tz       Europe/Berlin
-##  date     2024-12-21
+##  date     2024-12-26
 ##  pandoc   3.2 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/aarch64/ (via rmarkdown)
 ```
 

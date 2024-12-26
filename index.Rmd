@@ -1,4 +1,5 @@
 ---
+title: "Make it reproducibleR"
 date: "Last update: `r Sys.Date()`"
 output:
   xaringan::moon_reader:
@@ -76,10 +77,8 @@ style_mono_accent(
 
 
   
-## Make it reproducibleR
-
-
-### These slides are work in progess
+# Make it reproducibleR
+## These slides are work in progess
 
 .large[Dr. Edgar J. Treischl] <br>
 <a href="www.edgar-treischl.de" target="_blank">www.edgar-treischl.de</a>
@@ -144,11 +143,11 @@ class: bottom, center
 
 
 ---
-## 01: Start with a clean slate 
+## 01: Start with a clean slate ...
 
 .pull-left[
 
-- Start with a clean slate and restart R: Do not save the workspace and do not load the workspace from an `.Rdata` file (Based on Bryan et al. 2021). 
+- and restart R: Do not save the workspace and do not load the workspace from an `.Rdata` file (Based on Bryan et al. 2021). 
 
 
 ### Abandon the rm approach `r emoji::emoji("skull")`
@@ -169,6 +168,7 @@ class: bottom, center
 </figure>
 ]
 
+
 ---
 
 ## 01: Don't Go Places Where You Don't Belong
@@ -180,7 +180,7 @@ class: bottom, center
 
 ## 01: Fix paths with the here package
 
-### Abandon absolute paths, they will break anyway `r emoji::emoji("skull")`. 
+### Abandon absolute paths, they will break anyway `r emoji::emoji("skull")`
 
 
 
@@ -215,7 +215,7 @@ here::here("data", "descriptive_title.csv")
 
 ## 01: R vs. Rmd
 
-### `r emoji::emoji("finger")` Code lives in .R files, Code and Text in Rmd. 
+### `r emoji::emoji("finger")` Code lives in .R files, Code and Text in Rmd
 
 If you need to create a document from a source code, run:
 
@@ -224,7 +224,7 @@ If you need to create a document from a source code, run:
 knitr::spin("script.R")
 ```
 
-- Roxygen comments will be treated as text
+- Roxygen comments will be treated as text (more about that later)
 - Add yaml header to the script to control the output
 
 
@@ -236,7 +236,7 @@ If you need to extract the code from an Rmd file, run:
 knitr::purl()
 ```
 
-- Adjust the level of extraction with the `documentation` parameter (e.g. Code only, etc.)
+- Adjust the level of extraction with the `documentation` parameter (e.g., code only)
 - Set `purl = FALSE` to avoid the extraction of code chunks
 
 
