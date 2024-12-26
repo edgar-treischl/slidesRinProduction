@@ -81,7 +81,7 @@ style_mono_accent(
 ## These slides are work in progess
 
 .large[Dr. Edgar J. Treischl] <br>
-<a href="www.edgar-treischl.de" target="_blank">www.edgar-treischl.de</a>
+<a href="http://www.edgar-treischl.de" target="_blank">www.edgar-treischl.de</a>
 <br/>
 <br/>
 .large[Last update: `r Sys.Date()`]
