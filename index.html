@@ -71,13 +71,22 @@ class: center, middle
 &lt;a href="http://www.edgar-treischl.de" target="_blank"&gt;www.edgar-treischl.de&lt;/a&gt;
 &lt;br/&gt;
 &lt;br/&gt;
-.large[Last update: 2024-12-26]
+.large[Last update: 2024-12-27]
 &lt;br/&gt;
 &lt;br/&gt;
 This presentation is licensed under a CC-BY-NC 4.0 license.
 You may copy, distribute, and use the slides in your own work, as long as you give attribution to the original author on each slide that you use. Commercial use of the contents of these slides is not allowed.
 
-&lt;img align="right" src="images/by-nceu.png" width="150px"/&gt;
+&lt;div class="remark-footer"&gt;
+  &lt;!-- Left-aligned image --&gt;
+  &lt;img src="images/by-nceu.png" alt="Image left" width="150px" class="footer-left"/&gt;
+  
+  &lt;!-- Right-aligned GitHub logo --&gt;
+  &lt;a href="https://github.com/edgar-treischl/Workshop_GitHubIntro" target="_blank"&gt;
+    &lt;img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" 
+         alt="GitHub logo" class="footer-right"/&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
 
 
 
@@ -90,7 +99,7 @@ You may copy, distribute, and use the slides in your own work, as long as you gi
 
 
 ---
-## 📆 Agenda
+## 📅 Agenda
 
 
 
@@ -213,7 +222,7 @@ here::here("data", "descriptive_title.csv")
 
 ## 01: R vs. Rmd
 
-### 🤘 Code lives in .R files, Code and Text in Rmd
+### 🤘 Code lives in R, Code and Text in Rmd files
 
 If you need to create a document from a source code, run:
 
@@ -275,7 +284,7 @@ background-size: 8%
 .pull-left[
 
 &lt;div class="info-box"&gt;
-  &lt;i&gt;ℹ️️&lt;/i&gt; "styler formats your code according to the tidyverse style guide (https://style.tidyverse.org) (or your custom style guide) so you can direct your attention to the content of your code".
+  &lt;i&gt;🙋️️&lt;/i&gt; "styler formats your code according to the tidyverse style guide (https://style.tidyverse.org) (or your custom style guide) so you can direct your attention to the content of your code".
 &lt;/div&gt;
 
 
@@ -361,7 +370,7 @@ background-size: cover
 class: bottom, center
 
 
-## .white[Let's build ... 🦹‍♀️] 
+## .white[Let's build ... 🙊] 
 
 
 ---
@@ -477,15 +486,12 @@ background-size: 8%
 
 
 
-Usethis has predefined worksflows for:
-
-- R CMD check
-- test coverage
-- ...
+Usethis has predefined workflows for:
 
 
 ``` r
 usethis::use_github_action()
+
 # Which action do you want to add? (0 to exit)
 # (See &lt;https://github.com/r-lib/actions/tree/v2/examples&gt; for other options) 
 # 
@@ -512,7 +518,7 @@ background-size: 8%
 &lt;br/&gt;
 
 &lt;div class="info-box"&gt;
-  &lt;i&gt;ℹ️&lt;/i&gt; "Testing your code can be painful and tedious, but it greatly increases the quality of your code. testthat tries to make testing as fun as possible, so that you get a visceral satisfaction from writing tests. Testing should be addictive, so you do it all the time."
+  &lt;i&gt;⚡&lt;/i&gt; "Testing your code can be painful and tedious, but it greatly increases the quality of your code. testthat tries to make testing as fun as possible, so that you get a visceral satisfaction from writing tests. Testing should be addictive, so you do it all the time."
 &lt;/div&gt;
 
 &lt;br/&gt;
@@ -547,19 +553,20 @@ background-size: 8%
 .panel[.panel-name[Test Coverage]
 
 .pull-left[
-"Track test coverage for your R package and view reports locally or (optionally) upload the results to codecov or coveralls."
 
-- Bullet point A
-- Bullet point B
-- Bullet point C
+&lt;div class="info-box"&gt;
+  &lt;i&gt;⚡️&lt;/i&gt;"Track test coverage for your R package and view reports locally or (optionally) upload the results to codecov or coveralls."
+&lt;/div&gt;
+
+
+
 
 ]
 .pull-right[
 
 ``` r
-#Set up the test infrastructure
-# And build a test
-usethis::use_test("name")
+# Inspect the test coverage
+covr::report()
 ```
 
 ]
@@ -655,7 +662,7 @@ add &lt;- function(x, y) {
 .pull-left[
 
 &lt;div class="info-box"&gt;
-  &lt;i&gt;ℹ️&lt;/i&gt; "The goal of pkgdown is to make it easy to make an elegant and useful package website with a minimum of work. You can get a basic website up and running in just a couple of minutes. If you’re using GitHub, we recommend setting up pkgdown and GitHub actions to automatically build and publish your site". (Wickham et al.)
+  &lt;i&gt;⚡️&lt;/i&gt; "The goal of pkgdown is to make it easy to make an elegant and useful package website with a minimum of work. You can get a basic website up and running in just a couple of minutes. If you’re using GitHub, we recommend setting up pkgdown and GitHub actions to automatically build and publish your site". (Wickham et al.)
 &lt;/div&gt;
 
 
@@ -751,8 +758,31 @@ class: bottom, center
 
 
 &lt;br&gt;
-## .black[Deploy] 
+## .white[Deploy] 
 
+
+---
+## 04 Deploy: The renv package
+
+&lt;div class="info-box"&gt;
+  &lt;i&gt;⚡&lt;/i&gt; "The renv package helps you create reproducible environments for your R projects. Use renv to make your R projects more isolated, portable and reproducible.
+&lt;/div&gt;
+
+.pull-left[
+
+- Isolated: Installing a new or updated package for one project won’t break your other projects, and vice versa.
+
+- Portable: Easily transport your projects from one computer to another, even across different platforms.
+
+- Reproducible: renv records the exact package versions you depend on, and ensures those exact versions are the ones that get installed." (Ushey and Wickham)
+
+]
+
+.pull-right[
+&lt;figure&gt;
+    &lt;a href="https://rstudio.github.io/renv/index.html" target="_blank"&gt;&lt;img src="https://rstudio.github.io/renv/logo.svg" alt="The renv package" width="65%"/&gt;
+&lt;/figure&gt;
+]
 
 
 ---
@@ -764,9 +794,7 @@ background-size: 8%
 
 .pull-left[
 
--  Create reproducible environments with renv:
-
-- Use `renv::init()` to initiate a new project with renv:
+- Use `renv::init()` to initiate a new project:
   - Gives you the power of isolation because it creates a project library 
   - Creates a .Rprofile file to load the renv library as long as renv is active
   - The package creates a renv.lock with metadata about every project package so that it can be installed on a new machine
@@ -782,6 +810,17 @@ background-size: 8%
 ]
 
 .pull-right[
+
+&lt;figure&gt;
+    &lt;a href="https://rstudio.github.io/renv/index.html" target="_blank"&gt;&lt;img src="https://rstudio.github.io/renv/articles/renv.png" alt="www.edgar-treischl.de" width="95%"/&gt;
+&lt;/figure&gt;
+
+
+]
+
+
+---
+## 04 Deploy: lockfile example
 
 ```shell
   "R": {
@@ -804,9 +843,6 @@ background-size: 8%
 ```
 
 
-]
-
-
 ---
 ## 04 Deploy: sessioninfo
 
@@ -826,7 +862,7 @@ mysession$platform
 ##  collate  en_US.UTF-8
 ##  ctype    en_US.UTF-8
 ##  tz       Europe/Berlin
-##  date     2024-12-26
+##  date     2024-12-27
 ##  pandoc   3.2 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/aarch64/ (via rmarkdown)
 ```
 
@@ -934,7 +970,7 @@ class: center, middle
 #### &lt;a href="https://edgar-treischl.de" target="_blank"&gt;&lt;img src="https://avatars.githubusercontent.com/u/77931249?s=400&amp;u=eaf1d0871b643dd32cc0ff9f777edef28e6569a8&amp;v=4" alt="www.edgar-treischl.de" width="25%"/&gt;&lt;br/&gt;www.edgar-treischl.de&lt;/a&gt;
 &lt;br/&gt;
 
-#### &lt;a href="https://github.com/edgar-treischl" target="_blank"&gt;&lt;img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="https://github.com/edgar-treischl" width="30%"/&gt;&lt;br/&gt;edgar-treischl&lt;/a&gt;
+#### &lt;a href="https://github.com/edgar-treischl/Workshop_GitHubIntro" target="_blank"&gt;&lt;img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="https://github.com/edgar-treischl" width="30%"/&gt;&lt;br/&gt;edgar-treischl&lt;/a&gt;
 
 
 ]
@@ -982,6 +1018,10 @@ De Gruyter Oldenbourg.&lt;/cite&gt;&lt;/p&gt;
 &lt;em&gt;usethis: Automate Package and Project Setup&lt;/em&gt;.
 R package version 2.1.6.
 URL: &lt;a href="https://CRAN.R-project.org/package=usethis"&gt;https://CRAN.R-project.org/package=usethis&lt;/a&gt;.&lt;/cite&gt;&lt;/p&gt;
+&lt;p&gt;&lt;cite&gt;Wickham, H., P. Danenberg, G. Csárdi, et al.
+(2024).
+&lt;em&gt;roxygen2: In-Line Documentation for R&lt;/em&gt;.
+URL: &lt;a href="https://CRAN.R-project.org/package=roxygen2"&gt;https://CRAN.R-project.org/package=roxygen2&lt;/a&gt;.&lt;/cite&gt;&lt;/p&gt;
 &lt;p&gt;&lt;cite&gt;Wickham, H., J. Hester, W. Chang, et al.
 (2022).
 &lt;em&gt;devtools: Tools to Make Developing R Packages Easier&lt;/em&gt;.

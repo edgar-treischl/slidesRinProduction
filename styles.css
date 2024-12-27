@@ -86,4 +86,27 @@ blockquote.info-box {
   color: var(--red);
 }
 
+/* Style for the footer section */
+.remark-footer {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between; /* This will position items to the left and right */
+  align-items: center;  /* This ensures vertical centering */
+  padding: 0 10px;  /* Add padding if necessary */
+}
 
+/* Left-aligned image */
+.footer-left {
+  margin-right: auto;  /* Pushes it to the left */
+  width: 150px;  /* Set size or adjust as needed */
+}
+
+/* Right-aligned image */
+.footer-right {
+  width: 50px;  /* Adjust width for GitHub logo */
+  height: auto;
+}

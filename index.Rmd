@@ -90,7 +90,16 @@ style_mono_accent(
 This presentation is licensed under a CC-BY-NC 4.0 license.
 You may copy, distribute, and use the slides in your own work, as long as you give attribution to the original author on each slide that you use. Commercial use of the contents of these slides is not allowed.
 
-<img align="right" src="images/by-nceu.png" width="150px"/>
+<div class="remark-footer">
+  <!-- Left-aligned image -->
+  <img src="images/by-nceu.png" alt="Image left" width="150px" class="footer-left"/>
+  
+  <!-- Right-aligned GitHub logo -->
+  <a href="https://github.com/edgar-treischl/Workshop_GitHubIntro" target="_blank">
+    <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" 
+         alt="GitHub logo" class="footer-right"/>
+  </a>
+</div>
 
 
 
@@ -215,7 +224,7 @@ here::here("data", "descriptive_title.csv")
 
 ## 01: R vs. Rmd
 
-### `r emoji::emoji("finger")` Code lives in .R files, Code and Text in Rmd
+### `r emoji::emoji("finger")` Code lives in R, Code and Text in Rmd files
 
 If you need to create a document from a source code, run:
 
@@ -275,7 +284,7 @@ background-size: 8%
 .pull-left[
 
 <div class="info-box">
-  <i>ℹ️️</i> "styler formats your code according to the tidyverse style guide (https://style.tidyverse.org) (or your custom style guide) so you can direct your attention to the content of your code".
+  <i>`r emoji::emoji("lightning")`️️</i> "styler formats your code according to the tidyverse style guide (https://style.tidyverse.org) (or your custom style guide) so you can direct your attention to the content of your code".
 </div>
 
 
@@ -459,14 +468,11 @@ background-size: 8%
 
 
 
-Usethis has predefined worksflows for:
-
-- R CMD check
-- test coverage
-- ...
+Usethis has predefined workflows for:
 
 ```{r, eval = FALSE}
 usethis::use_github_action()
+
 # Which action do you want to add? (0 to exit)
 # (See <https://github.com/r-lib/actions/tree/v2/examples> for other options) 
 # 
@@ -493,7 +499,7 @@ background-size: 8%
 <br/>
 
 <div class="info-box">
-  <i>ℹ️</i> "Testing your code can be painful and tedious, but it greatly increases the quality of your code. testthat tries to make testing as fun as possible, so that you get a visceral satisfaction from writing tests. Testing should be addictive, so you do it all the time."
+  <i>`r emoji::emoji("lightning")`</i> "Testing your code can be painful and tedious, but it greatly increases the quality of your code. testthat tries to make testing as fun as possible, so that you get a visceral satisfaction from writing tests. Testing should be addictive, so you do it all the time."
 </div>
 
 <br/>
@@ -527,18 +533,19 @@ background-size: 8%
 .panel[.panel-name[Test Coverage]
 
 .pull-left[
-"Track test coverage for your R package and view reports locally or (optionally) upload the results to codecov or coveralls."
 
-- Bullet point A
-- Bullet point B
-- Bullet point C
+<div class="info-box">
+  <i>`r emoji::emoji("lightning")`️</i>"Track test coverage for your R package and view reports locally or (optionally) upload the results to codecov or coveralls."
+</div>
+
+
+
 
 ]
 .pull-right[
 ```{r, eval =FALSE}
-#Set up the test infrastructure
-# And build a test
-usethis::use_test("name")
+# Inspect the test coverage
+covr::report()
 ```
 
 ]
@@ -590,7 +597,7 @@ background-size: 8%
 ### Describe your functions and ...
 
 <div class="info-box">
-  <i>🪄️</i> "... roxygen2 will process your source code and comments to automatically generate .Rd files in man/, NAMESPACE, and, if needed, the Collate field in DESCRIPTION.". (XX et al.)
+  <i>`r emoji::emoji("wand")`️</i> "... roxygen2 will process your source code and comments to automatically generate .Rd files in man/, NAMESPACE, and, if needed, the Collate field in DESCRIPTION.". (XX et al.)
 </div>
 
 
@@ -633,7 +640,7 @@ add <- function(x, y) {
 .pull-left[
 
 <div class="info-box">
-  <i>ℹ️</i> "The goal of pkgdown is to make it easy to make an elegant and useful package website with a minimum of work. You can get a basic website up and running in just a couple of minutes. If you’re using GitHub, we recommend setting up pkgdown and GitHub actions to automatically build and publish your site". (Wickham et al.)
+  <i>`r emoji::emoji("lightning")`️</i> "The goal of pkgdown is to make it easy to make an elegant and useful package website with a minimum of work. You can get a basic website up and running in just a couple of minutes. If you’re using GitHub, we recommend setting up pkgdown and GitHub actions to automatically build and publish your site". (Wickham et al.)
 </div>
 
 
@@ -641,7 +648,7 @@ add <- function(x, y) {
 
 .pull-right[
 <figure>
-    <a href="https://pkgdown.r-lib.org" target="_blank"><img src="https://pkgdown.r-lib.org/logo.png" alt="https://pkgdown.r-lib.org" width="65%" align="right"/>
+    <a href="https://pkgdown.r-lib.org" target="_blank"><img src="https://pkgdown.r-lib.org/logo.png" alt="https://pkgdown.r-lib.org" width="50%" align="right"/>
 </figure>
 ]
 
@@ -727,8 +734,31 @@ class: bottom, center
 
 
 <br>
-## .black[Deploy] 
+## .white[Deploy] 
 
+
+---
+## 04 Deploy: The renv package
+
+<div class="info-box">
+  <i>`r emoji::emoji("lightning")`</i> "The renv package helps you create reproducible environments for your R projects. Use renv to make your R projects more isolated, portable and reproducible.
+</div>
+
+.pull-left[
+
+- Isolated: Installing a new or updated package for one project won’t break your other projects, and vice versa.
+
+- Portable: Easily transport your projects from one computer to another, even across different platforms.
+
+- Reproducible: renv records the exact package versions you depend on, and ensures those exact versions are the ones that get installed." (Ushey and Wickham)
+
+]
+
+.pull-right[
+<figure>
+    <a href="https://rstudio.github.io/renv/index.html" target="_blank"><img src="https://rstudio.github.io/renv/logo.svg" alt="The renv package" width="65%"/>
+</figure>
+]
 
 
 ---
@@ -740,9 +770,7 @@ background-size: 8%
 
 .pull-left[
 
--  Create reproducible environments with renv:
-
-- Use `renv::init()` to initiate a new project with renv:
+- Use `renv::init()` to initiate a new project:
   - Gives you the power of isolation because it creates a project library 
   - Creates a .Rprofile file to load the renv library as long as renv is active
   - The package creates a renv.lock with metadata about every project package so that it can be installed on a new machine
@@ -758,6 +786,17 @@ background-size: 8%
 ]
 
 .pull-right[
+
+<figure>
+    <a href="https://rstudio.github.io/renv/index.html" target="_blank"><img src="https://rstudio.github.io/renv/articles/renv.png" alt="www.edgar-treischl.de" width="95%"/>
+</figure>
+
+
+]
+
+
+---
+## 04 Deploy: lockfile example
 
 ```shell
   "R": {
@@ -778,9 +817,6 @@ background-size: 8%
       "Hash": "4584a57f565dd7987d59dda3a02cfb41"}
     }
 ```
-
-
-]
 
 
 ---
@@ -894,7 +930,7 @@ class: center, middle
 #### <a href="https://edgar-treischl.de" target="_blank"><img src="https://avatars.githubusercontent.com/u/77931249?s=400&u=eaf1d0871b643dd32cc0ff9f777edef28e6569a8&v=4" alt="www.edgar-treischl.de" width="25%"/><br/>www.edgar-treischl.de</a>
 <br/>
 
-#### <a href="https://github.com/edgar-treischl" target="_blank"><img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="https://github.com/edgar-treischl" width="30%"/><br/>edgar-treischl</a>
+#### <a href="https://github.com/edgar-treischl/Workshop_GitHubIntro" target="_blank"><img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="https://github.com/edgar-treischl" width="30%"/><br/>edgar-treischl</a>
 
 
 ]
@@ -927,6 +963,7 @@ print(bib[key = "chacon_pro_2014"],
                style = "html", 
                bib.style = "authoryear"))
 
+
 print(bib[key = "shiny"], 
   .opts = list(check.entries = TRUE, 
                style = "html", 
@@ -938,6 +975,11 @@ print(bib[key = "treischl_practice_2023"],
                bib.style = "authoryear"))
 
 print(bib[key = "usethis"], 
+  .opts = list(check.entries = FALSE, 
+               style = "html", 
+               bib.style = "authoryear"))
+
+print(bib[key = "roxygen2"], 
   .opts = list(check.entries = FALSE, 
                style = "html", 
                bib.style = "authoryear"))
