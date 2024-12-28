@@ -97,7 +97,11 @@ blockquote.info-box {
   justify-content: space-between; /* This will position items to the left and right */
   align-items: center;  /* This ensures vertical centering */
   padding: 0 10px;  /* Add padding if necessary */
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.5em;  
 }
+
+
 
 /* Left-aligned image */
 .footer-left {
