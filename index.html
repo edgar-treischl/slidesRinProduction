@@ -11,6 +11,10 @@
     <script src="libs/xaringanExtra-progressBar/progress-bar.js"></script>
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="styles.css" type="text/css" />
   </head>
@@ -71,7 +75,7 @@ class: center, middle
 &lt;a href="http://www.edgar-treischl.de" target="_blank"&gt;www.edgar-treischl.de&lt;/a&gt;
 &lt;br/&gt;
 &lt;br/&gt;
-.large[Last update: 2024-12-27]
+.large[Last update: 2024-12-28]
 &lt;br/&gt;
 &lt;br/&gt;
 This presentation is licensed under a CC-BY-NC 4.0 license.
@@ -99,7 +103,7 @@ You may copy, distribute, and use the slides in your own work, as long as you gi
 
 
 ---
-## 📅 Agenda
+## 📆 Agenda
 
 
 
@@ -284,7 +288,7 @@ background-size: 8%
 .pull-left[
 
 &lt;div class="info-box"&gt;
-  &lt;i&gt;🙋️️&lt;/i&gt; "styler formats your code according to the tidyverse style guide (https://style.tidyverse.org) (or your custom style guide) so you can direct your attention to the content of your code".
+  &lt;i&gt;⚡️️&lt;/i&gt; "styler formats your code according to the tidyverse style guide (https://style.tidyverse.org) (or your custom style guide) so you can direct your attention to the content of your code".
 &lt;/div&gt;
 
 
@@ -313,6 +317,13 @@ styler::style_text(
 
 ]
 
+
+There a goodies if you develop an R package:
+
+
+``` r
+styler::style_pkg()
+```
 
 
 
@@ -359,7 +370,13 @@ lintr::lint(text = 'myFunction &lt;- function(x, y) {
 
 
 
+There are even more goodies 🦹 if you develop an R package:
 
+
+``` r
+#lintr::lint_dir(path = "R")
+lintr::lint_package()
+```
 
 
 
@@ -370,7 +387,7 @@ background-size: cover
 class: bottom, center
 
 
-## .white[Let's build ... 🙊] 
+## .white[Let's build ... 🦹] 
 
 
 ---
@@ -506,7 +523,7 @@ background-image: url("images/test.gif")
 background-size: cover
 class: bottom, center
 
-# .black[... but don't forget to test 😜] 
+# .black[... but don't forget to test 👻] 
 
 
 ---
@@ -670,7 +687,7 @@ add &lt;- function(x, y) {
 
 .pull-right[
 &lt;figure&gt;
-    &lt;a href="https://pkgdown.r-lib.org" target="_blank"&gt;&lt;img src="https://pkgdown.r-lib.org/logo.png" alt="https://pkgdown.r-lib.org" width="65%" align="right"/&gt;
+    &lt;a href="https://pkgdown.r-lib.org" target="_blank"&gt;&lt;img src="https://pkgdown.r-lib.org/logo.png" alt="https://pkgdown.r-lib.org" width="50%" align="right"/&gt;
 &lt;/figure&gt;
 ]
 
@@ -720,7 +737,7 @@ pkgdown::build_site()
 
 ``` r
 #Add corresponding GHA to deploy each time you push to GitHub
-usethis::use_pkgdown_github_pages
+usethis::use_pkgdown_github_pages()
 ```
 
 
@@ -862,7 +879,7 @@ mysession$platform
 ##  collate  en_US.UTF-8
 ##  ctype    en_US.UTF-8
 ##  tz       Europe/Berlin
-##  date     2024-12-27
+##  date     2024-12-28
 ##  pandoc   3.2 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/aarch64/ (via rmarkdown)
 ```
 
@@ -970,7 +987,7 @@ class: center, middle
 #### &lt;a href="https://edgar-treischl.de" target="_blank"&gt;&lt;img src="https://avatars.githubusercontent.com/u/77931249?s=400&amp;u=eaf1d0871b643dd32cc0ff9f777edef28e6569a8&amp;v=4" alt="www.edgar-treischl.de" width="25%"/&gt;&lt;br/&gt;www.edgar-treischl.de&lt;/a&gt;
 &lt;br/&gt;
 
-#### &lt;a href="https://github.com/edgar-treischl/Workshop_GitHubIntro" target="_blank"&gt;&lt;img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="https://github.com/edgar-treischl" width="30%"/&gt;&lt;br/&gt;edgar-treischl&lt;/a&gt;
+#### &lt;a href="https://github.com/edgar-treischl/Workshop_reproducibleR" target="_blank"&gt;&lt;img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="https://github.com/edgar-treischl" width="30%"/&gt;&lt;br/&gt;edgar-treischl&lt;/a&gt;
 
 
 ]

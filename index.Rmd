@@ -61,6 +61,8 @@ xaringanExtra::style_search(match_background = "black",
 
 xaringanExtra::use_panelset()
 
+xaringanExtra::use_clipboard()
+
 ```
 
 
@@ -306,6 +308,12 @@ styler::style_text(
 ]
 
 
+There a goodies if you develop an R package:
+
+```{r, eval=FALSE}
+styler::style_pkg()
+```
+
 
 
 
@@ -344,7 +352,12 @@ lintr::lint(text = 'myFunction <- function(x, y) {
 
 
 
+There are even more goodies `r emoji::emoji("bad")` if you develop an R package:
 
+```{r, eval=FALSE}
+#lintr::lint_dir(path = "R")
+lintr::lint_package()
+```
 
 
 
@@ -696,7 +709,7 @@ pkgdown::build_site()
 
 ```{r, eval=FALSE}
 #Add corresponding GHA to deploy each time you push to GitHub
-usethis::use_pkgdown_github_pages
+usethis::use_pkgdown_github_pages()
 ```
 
 
@@ -930,7 +943,7 @@ class: center, middle
 #### <a href="https://edgar-treischl.de" target="_blank"><img src="https://avatars.githubusercontent.com/u/77931249?s=400&u=eaf1d0871b643dd32cc0ff9f777edef28e6569a8&v=4" alt="www.edgar-treischl.de" width="25%"/><br/>www.edgar-treischl.de</a>
 <br/>
 
-#### <a href="https://github.com/edgar-treischl/Workshop_GitHubIntro" target="_blank"><img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="https://github.com/edgar-treischl" width="30%"/><br/>edgar-treischl</a>
+#### <a href="https://github.com/edgar-treischl/Workshop_reproducibleR" target="_blank"><img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="https://github.com/edgar-treischl" width="30%"/><br/>edgar-treischl</a>
 
 
 ]
