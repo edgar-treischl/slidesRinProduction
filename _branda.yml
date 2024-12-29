@@ -1,0 +1,30 @@
+color:
+  palette:
+    blue: "#447099"
+    orange: "#ee6331"
+    teal: "#419599"
+    green: "#729943"
+    burgundy: "#9a4665"
+    purple: burgundy
+    gray: "#404041"
+    black: "#151515"
+    white: "#FFFFFF"
+  foreground: black
+  background: white
+  primary: teal
+  secondary: gray
+  info: teal
+  success: green
+  warning: orange
+  danger: burgundy
+  
+typography:
+  fonts:
+    - family: Open Sans
+      source: bunny
+    - family: Source Code Pro
+      source: bunny
+  base: Open Sans
+  headings:
+    weight: light
+  monospace: Source Code Pro
