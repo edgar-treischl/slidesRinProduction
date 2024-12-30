@@ -339,9 +339,10 @@ styler::style_pkg()
 
 
 ---
-background-image: url(https://github.com/r-lib/lintr/blob/main/man/figures/logo.png)
+background-image: url(https://github.com/r-lib/lintr/blob/main/man/figures/logo.png?raw=true)
 background-position: 90% 5%
 background-size: 8%
+
 
 ## 01: Lint
 
