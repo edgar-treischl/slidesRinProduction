@@ -15,6 +15,19 @@
     <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
     <script src="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
     <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <meta name="description" content="A overview how to put R code into production."/>
+    <meta name="generator" content="xaringan and remark.js"/>
+    <meta name="github-repo" content="edgar-treischl/Workshop_GitHubIntro"/>
+    <meta name="twitter:title" content="Make it reproducibleR: Put R in Production"/>
+    <meta name="twitter:description" content="A overview how to put R code into production."/>
+    <meta name="twitter:url" content="https://edgar-treischl.github.io/Workshop_reproducibleR/"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta property="og:title" content="Make it reproducibleR: Put R in Production"/>
+    <meta property="og:description" content="A overview how to put R code into production."/>
+    <meta property="og:url" content="https://edgar-treischl.github.io/Workshop_reproducibleR/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="article:author" content="Edgar J. Treischl"/>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="styles.css" type="text/css" />
   </head>
@@ -67,15 +80,17 @@ class: center, middle
 
 
 
+
   
 # Make it reproducibleR
-## These slides are work in progess
+
+## Put R in Production
 
 .large[Dr. Edgar J. Treischl] &lt;br&gt;
 &lt;a href="http://www.edgar-treischl.de" target="_blank"&gt;www.edgar-treischl.de&lt;/a&gt;
 &lt;br/&gt;
 &lt;br/&gt;
-.large[Last update: 2024-12-29]
+.large[Last update: 2024-12-30]
 &lt;br/&gt;
 &lt;br/&gt;
 This presentation is licensed under a CC-BY-NC 4.0 license.
@@ -86,7 +101,7 @@ You may copy, distribute, and use the slides in your own work, as long as you gi
   &lt;img src="images/by-nceu.png" alt="Image left" width="150px" class="footer-left"/&gt;
   
   &lt;!-- Right-aligned GitHub logo --&gt;
-  &lt;a href="https://github.com/edgar-treischl/Workshop_GitHubIntro" target="_blank"&gt;
+  &lt;a href="https://github.com/edgar-treischl/Workshop_reproducibleR" target="_blank"&gt;
     &lt;img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" 
          alt="GitHub logo" class="footer-right"/&gt;
   &lt;/a&gt;
@@ -103,7 +118,7 @@ You may copy, distribute, and use the slides in your own work, as long as you gi
 
 
 ---
-## 📅 Agenda
+## Agenda
 
 
 
@@ -111,10 +126,10 @@ You may copy, distribute, and use the slides in your own work, as long as you gi
 .pull-left[
 
 
-### 1️⃣ Develop
-### 2️⃣  Build
-### 3️⃣  Document
-### 4️⃣  Deploy
+### 01 Develop 💭
+### 02 Build 🚧
+### 03 Document 📄
+### 04 Deploy 🏃‍♂️
 
 
 
@@ -225,7 +240,7 @@ here::here("data", "descriptive_title.csv")
 
 ## 01: R vs. Rmd
 
-### 👈 Code lives in R, Code and Text in Rmd files
+### 👆 Code lives in R, Code and Text in Rmd files
 
 If you need to create a document from a source code, run:
 
@@ -372,7 +387,7 @@ lintr::lint(text = 'myFunction &lt;- function(x, y) {
 
 
 
-There are even more goodies 🦹‍♂️ if you develop an R package:
+There are even more goodies 🦹‍♀️ if you develop an R package:
 
 
 ``` r
@@ -391,13 +406,13 @@ class: bottom, center
 
 
 
-## .white[Let's build ... 🙈] 
+## .white[Let's build ... 🦹‍♀️] 
 
 &lt;div class="remark-footer"&gt;&lt;a href="https://gifer.com/de/8rTu" target="_blank" style="color: black;"&gt;Source: Mark Hamill&lt;/a&gt;&lt;/div&gt;
 
 
 ---
-## 02 Build: R Packages
+## 02: R Packages
 
 .pull-left[
 
@@ -416,14 +431,35 @@ class: bottom, center
 &lt;/figure&gt;
 ]
 
-
-
 ---
-## 02 Build: usethis
+## 02: devtools does the heavy lifting 🏋️
+
 
 .pull-left[
 
-### Automate package and project setup with usethis
+&lt;div class="info-box"&gt;
+  &lt;i&gt;⚡&lt;/i&gt; The aim of devtools is to make package development easier by providing R functions that simplify and expedite common tasks. R Packages is a book based around this workflow.
+&lt;/div&gt;
+
+&lt;figure&gt;
+    &lt;a href="https://devtools.r-lib.org" target="_blank"&gt;&lt;img src="images/devtools.png" alt="www.edgar-treischl.de" width="65%" align="center"/&gt;
+&lt;/figure&gt;
+
+]
+
+.pull-right[
+&lt;figure&gt;
+    &lt;a href="https://devtools.r-lib.org" target="_blank"&gt;&lt;img src="https://devtools.r-lib.org/logo.svg" alt="www.edgar-treischl.de" width="55%" align="center"/&gt;
+&lt;/figure&gt;
+]
+
+
+
+---
+## 02: usethis automates package and project setup
+
+.pull-left[
+
 
 
 ``` r
@@ -449,7 +485,7 @@ usethis::use_readme_rmd()
 
 .pull-right[
 &lt;figure&gt;
-    &lt;a href="https://usethis.r-lib.org/" target="_blank"&gt;&lt;img src="https://usethis.r-lib.org/logo.png" alt="www.edgar-treischl.de" width="65%" align="center"/&gt;
+    &lt;a href="https://usethis.r-lib.org/" target="_blank"&gt;&lt;img src="https://usethis.r-lib.org/logo.png" alt="www.edgar-treischl.de" width="55%" align="center"/&gt;
 &lt;/figure&gt;
 ]
 
@@ -458,7 +494,7 @@ usethis::use_readme_rmd()
 background-image: url(https://usethis.r-lib.org/logo.png)
 background-position: 90% 5%
 background-size: 8%
-## 02 Build: Github Actions
+## 02: Github Actions
 
 .pull-left[
 
@@ -529,7 +565,7 @@ background-image: url("https://i.gifer.com/8Bx3.gif")
 background-size: cover
 class: bottom, center
 
-# .black[... but don't forget to test 🪿] 
+# .black[... but don't forget to test 👻] 
 
 
 &lt;div class="remark-footer"&gt;&lt;a href="https://gifer.com/de/8Bx3" target="_blank" style="color: black;"&gt;Source: Gifer&lt;/a&gt;&lt;/div&gt;
@@ -570,7 +606,7 @@ usethis::use_test("name")
 background-image: url(https://covr.r-lib.org/reference/figures/logo.png)
 background-position: 90% 5%
 background-size: 8%
-## 02 Build: covr
+## 02: covr
 
 
 .panelset[
@@ -890,7 +926,7 @@ mysession$platform
 ##  collate  en_US.UTF-8
 ##  ctype    en_US.UTF-8
 ##  tz       Europe/Berlin
-##  date     2024-12-29
+##  date     2024-12-30
 ##  pandoc   3.2 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/aarch64/ (via rmarkdown)
 ```
 
@@ -1024,13 +1060,11 @@ class: center, middle
 ## References
 
 
-&lt;p&gt;&lt;cite&gt;Chacon, S. and B. Straub
-(2014).
-&lt;em&gt;Pro Git&lt;/em&gt;.
-Englisch.
-2nd ed.
-New York, NY: Apress.
-ISBN: 978-1-4842-0077-3.&lt;/cite&gt;&lt;/p&gt;
+&lt;p&gt;&lt;cite&gt;Müller, K.
+(2020).
+&lt;em&gt;here: A Simpler Way to Find Your Files&lt;/em&gt;.
+R package version 1.0.1.
+URL: &lt;a href="https://CRAN.R-project.org/package=here"&gt;https://CRAN.R-project.org/package=here&lt;/a&gt;.&lt;/cite&gt;&lt;/p&gt;
 &lt;p&gt;&lt;cite&gt;Chang, W., J. Cheng, J. Allaire, et al.
 (2022).
 &lt;em&gt;shiny: Web Application Framework for R&lt;/em&gt;.

@@ -76,11 +76,27 @@ style_mono_accent(
 )
 ```
 
+```{r meta, echo=FALSE}
+library(metathis)
+meta() %>%
+  meta_general(
+    description = "A overview how to put R code into production.",
+    generator = "xaringan and remark.js"
+  ) %>% 
+  meta_name("github-repo" = "edgar-treischl/Workshop_GitHubIntro") %>% 
+  meta_social(
+    title = "Make it reproducibleR: Put R in Production",
+    url = "https://edgar-treischl.github.io/Workshop_reproducibleR/",
+    og_type = "website",
+    og_author = "Edgar J. Treischl"
+  )
+```
 
 
   
 # Make it reproducibleR
-## These slides are work in progess
+
+## Put R in Production
 
 .large[Dr. Edgar J. Treischl] <br>
 <a href="http://www.edgar-treischl.de" target="_blank">www.edgar-treischl.de</a>
@@ -97,7 +113,7 @@ You may copy, distribute, and use the slides in your own work, as long as you gi
   <img src="images/by-nceu.png" alt="Image left" width="150px" class="footer-left"/>
   
   <!-- Right-aligned GitHub logo -->
-  <a href="https://github.com/edgar-treischl/Workshop_GitHubIntro" target="_blank">
+  <a href="https://github.com/edgar-treischl/Workshop_reproducibleR" target="_blank">
     <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" 
          alt="GitHub logo" class="footer-right"/>
   </a>
@@ -114,7 +130,7 @@ You may copy, distribute, and use the slides in your own work, as long as you gi
 
 
 ---
-## `r emoji::emoji("schedule")` Agenda
+## Agenda
 
 
 
@@ -122,10 +138,10 @@ You may copy, distribute, and use the slides in your own work, as long as you gi
 .pull-left[
 
 
-### `r emoji::emoji("one")` Develop
-### `r emoji::emoji("two")`  Build
-### `r emoji::emoji("three")`  Document
-### `r emoji::emoji("four")`  Deploy
+### 01 Develop `r emoji::emoji("invent")`
+### 02 Build `r emoji::emoji("construction")`
+### 03 Document `r emoji::emoji("document")`
+### 04 Deploy `r emoji::emoji("run")`
 
 
 
@@ -378,7 +394,7 @@ class: bottom, center
 
 
 ---
-## 02 Build: R Packages
+## 02: R Packages
 
 .pull-left[
 
@@ -397,14 +413,35 @@ class: bottom, center
 </figure>
 ]
 
-
-
 ---
-## 02 Build: usethis
+## 02: devtools does the heavy lifting `r emoji::emoji("weight")`
+
 
 .pull-left[
 
-### Automate package and project setup with usethis
+<div class="info-box">
+  <i>`r emoji::emoji("lightning")`</i> The aim of devtools is to make package development easier by providing R functions that simplify and expedite common tasks. R Packages is a book based around this workflow.
+</div>
+
+<figure>
+    <a href="https://devtools.r-lib.org" target="_blank"><img src="images/devtools.png" alt="www.edgar-treischl.de" width="65%" align="center"/>
+</figure>
+
+]
+
+.pull-right[
+<figure>
+    <a href="https://devtools.r-lib.org" target="_blank"><img src="https://devtools.r-lib.org/logo.svg" alt="www.edgar-treischl.de" width="55%" align="center"/>
+</figure>
+]
+
+
+
+---
+## 02: usethis automates package and project setup
+
+.pull-left[
+
 
 ```{r, eval =FALSE}
 #Create a new package
@@ -427,7 +464,7 @@ usethis::use_readme_rmd()
 
 .pull-right[
 <figure>
-    <a href="https://usethis.r-lib.org/" target="_blank"><img src="https://usethis.r-lib.org/logo.png" alt="www.edgar-treischl.de" width="65%" align="center"/>
+    <a href="https://usethis.r-lib.org/" target="_blank"><img src="https://usethis.r-lib.org/logo.png" alt="www.edgar-treischl.de" width="55%" align="center"/>
 </figure>
 ]
 
@@ -436,7 +473,7 @@ usethis::use_readme_rmd()
 background-image: url(https://usethis.r-lib.org/logo.png)
 background-position: 90% 5%
 background-size: 8%
-## 02 Build: Github Actions
+## 02: Github Actions
 
 .pull-left[
 
@@ -546,7 +583,7 @@ usethis::use_test("name")
 background-image: url(https://covr.r-lib.org/reference/figures/logo.png)
 background-position: 90% 5%
 background-size: 8%
-## 02 Build: covr
+## 02: covr
 
 
 .panelset[
@@ -982,7 +1019,7 @@ class: center, middle
 
 ```{r, print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
 
-print(bib[key = "chacon_pro_2014"], 
+print(bib[key = "here"], 
   .opts = list(check.entries = FALSE, 
                style = "html", 
                bib.style = "authoryear"))
