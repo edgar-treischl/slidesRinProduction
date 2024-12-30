@@ -128,8 +128,8 @@ You may copy, distribute, and use the slides in your own work, as long as you gi
 
 ### 01 Develop 💭
 ### 02 Build 🚧
-### 03 Document 📜
-### 04 Deploy 🏃‍➡️
+### 03 Document 📄
+### 04 Deploy 🏃‍♂️
 
 
 
@@ -240,7 +240,7 @@ here::here("data", "descriptive_title.csv")
 
 ## 01: R vs. Rmd
 
-### 👆 Code lives in R, Code and Text in Rmd files
+### 🖕 Code lives in R, Code and Text in Rmd files
 
 If you need to create a document from a source code, run:
 
@@ -407,7 +407,7 @@ class: bottom, center
 
 
 
-## .white[Let's build ... 🦹] 
+## .white[Let's build ... 🦹‍♀️] 
 
 &lt;div class="remark-footer"&gt;&lt;a href="https://gifer.com/de/8rTu" target="_blank" style="color: black;"&gt;Source: Mark Hamill&lt;/a&gt;&lt;/div&gt;
 
@@ -433,7 +433,7 @@ class: bottom, center
 ]
 
 ---
-## 02: devtools does the heavy lifting 🏋️
+## 02: devtools does the heavy lifting 🏋️‍♂️
 
 
 .pull-left[
@@ -827,7 +827,7 @@ class: bottom, center
 &lt;div class="remark-footer"&gt;&lt;a href="https://giphy.com/gifs/batman-robin-laundry-l1J9JOEZqVI4JFEk0" target="_blank" style="color: black;"&gt;Source: Threadless&lt;/a&gt;&lt;/div&gt;
 
 ---
-## 04 Deploy: The renv package
+## 04: renv
 
 &lt;div class="info-box"&gt;
   &lt;i&gt;⚡&lt;/i&gt; "The renv package helps you create reproducible environments for your R projects. Use renv to make your R projects more isolated, portable and reproducible.
@@ -855,7 +855,7 @@ background-image: url(https://rstudio.github.io/renv/logo.svg)
 background-position: 90% 5%
 background-size: 8%
 
-## 04 Deploy: Control the R environment
+## 04: renv
 
 .pull-left[
 
@@ -885,7 +885,7 @@ background-size: 8%
 
 
 ---
-## 04 Deploy: lockfile example
+## 04: renv lockfile
 
 ```shell
   "R": {
@@ -909,7 +909,7 @@ background-size: 8%
 
 
 ---
-## 04 Deploy: sessioninfo
+## 04: sessioninfo
 
 
 ``` r
@@ -920,7 +920,7 @@ mysession$platform
 ```
 ##  setting  value
 ##  version  R version 4.4.2 (2024-10-31)
-##  os       macOS Sequoia 15.1.1
+##  os       macOS Sequoia 15.2
 ##  system   aarch64, darwin20
 ##  ui       X11
 ##  language (EN)
@@ -936,8 +936,8 @@ Set the parameter: `to_file = "session.log"`  to export a log file
 
 
 ---
-## Control the R environment
-### sessioninfo
+## 04: sessioninfo
+
 
 
 
@@ -965,15 +965,11 @@ sessioninfo::session_info(info = "external")
 
 
 ---
-background-image: url(https://rocker-project.org/img/rocker.png)
-background-position: 90% 5%
-background-size: 8%
-
-## 04 Deploy: docker/rocker
+## 04: Docker
 
 .pull-left[
 
-Create, deploy, and run applications in containers via Docker:
+Create, deploy, and run applications in containers:
 
 - Container: A standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.
 
@@ -982,12 +978,29 @@ Create, deploy, and run applications in containers via Docker:
 - Rocker: A project that provides different Docker images for R. Those bundles include the OS, R, (RStudio), and packages.
 
 
-
-
-
 ]
 
 .pull-right[
+
+&lt;figure&gt;
+    &lt;a href="https://www.docker.com" target="_blank"&gt;&lt;img src="images/docker.png" width="95%"/&gt;
+&lt;/figure&gt;
+
+]
+
+
+
+---
+background-image: url(https://rocker-project.org/img/rocker.png)
+background-position: 90% 5%
+background-size: 8%
+
+## 04: Docker and Rocker
+
+
+&lt;div class="info-box"&gt;&lt;i&gt;⚡&lt;/i&gt; The Rocker Project provides a collection of (Linux) containers suited for different needs. Find a base image to extend or images with popular software and optimized libraries pre-installed. &lt;/div&gt;
+
+
 
 ```shell
 # Use a base R image from rocker project (official R Docker image)
@@ -1006,14 +1019,6 @@ RUN R -e "install.packages(c('ggplot2'), repos='https://cloud.r-project.org/')"
 ENTRYPOINT ["Rscript", "hello.R"]
   
 ```
-
-
-]
-
-
-
-
-
 
 
 

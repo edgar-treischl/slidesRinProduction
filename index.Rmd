@@ -800,7 +800,7 @@ class: bottom, center
 <div class="remark-footer"><a href="https://giphy.com/gifs/batman-robin-laundry-l1J9JOEZqVI4JFEk0" target="_blank" style="color: black;">Source: Threadless</a></div>
 
 ---
-## 04 Deploy: The renv package
+## 04: renv
 
 <div class="info-box">
   <i>`r emoji::emoji("lightning")`</i> "The renv package helps you create reproducible environments for your R projects. Use renv to make your R projects more isolated, portable and reproducible.
@@ -828,7 +828,7 @@ background-image: url(https://rstudio.github.io/renv/logo.svg)
 background-position: 90% 5%
 background-size: 8%
 
-## 04 Deploy: Control the R environment
+## 04: renv
 
 .pull-left[
 
@@ -858,7 +858,7 @@ background-size: 8%
 
 
 ---
-## 04 Deploy: lockfile example
+## 04: renv lockfile
 
 ```shell
   "R": {
@@ -882,7 +882,7 @@ background-size: 8%
 
 
 ---
-## 04 Deploy: sessioninfo
+## 04: sessioninfo
 
 ```{r}
 mysession <- sessioninfo::session_info()
@@ -894,8 +894,8 @@ Set the parameter: `to_file = "session.log"`  to export a log file
 
 
 ---
-## Control the R environment
-### sessioninfo
+## 04: sessioninfo
+
 
 
 ```{r, eval = FALSE}
@@ -922,15 +922,11 @@ sessioninfo::session_info(info = "external")
 
 
 ---
-background-image: url(https://rocker-project.org/img/rocker.png)
-background-position: 90% 5%
-background-size: 8%
-
-## 04 Deploy: docker/rocker
+## 04: Docker
 
 .pull-left[
 
-Create, deploy, and run applications in containers via Docker:
+Create, deploy, and run applications in containers:
 
 - Container: A standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.
 
@@ -939,12 +935,29 @@ Create, deploy, and run applications in containers via Docker:
 - Rocker: A project that provides different Docker images for R. Those bundles include the OS, R, (RStudio), and packages.
 
 
-
-
-
 ]
 
 .pull-right[
+
+<figure>
+    <a href="https://www.docker.com" target="_blank"><img src="images/docker.png" width="95%"/>
+</figure>
+
+]
+
+
+
+---
+background-image: url(https://rocker-project.org/img/rocker.png)
+background-position: 90% 5%
+background-size: 8%
+
+## 04: Docker and Rocker
+
+
+<div class="info-box"><i>`r emoji::emoji("lightning")`</i> The Rocker Project provides a collection of (Linux) containers suited for different needs. Find a base image to extend or images with popular software and optimized libraries pre-installed. </div>
+
+
 
 ```shell
 # Use a base R image from rocker project (official R Docker image)
@@ -963,14 +976,6 @@ RUN R -e "install.packages(c('ggplot2'), repos='https://cloud.r-project.org/')"
 ENTRYPOINT ["Rscript", "hello.R"]
   
 ```
-
-
-]
-
-
-
-
-
 
 
 
