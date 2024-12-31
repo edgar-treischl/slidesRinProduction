@@ -288,7 +288,7 @@ background-size: 8%
 ### Track changes over time
 
 <figure>
-    <a href="https://r-pkgs.org" target="_blank"><img src="https://edgar-treischl.github.io/Workshop_GitHubIntro/images/Fig_0901.png" alt="www.edgar-treischl.de" width="95%"/> <figcaption style = "color: darkgray;">'Hadley Wickham and Jennifer Bryan'</figcaption>
+    <a href="https://r-pkgs.org" target="_blank"><img src="https://edgar-treischl.github.io/Workshop_GitHubIntro/images/Fig_0901.png" alt="www.edgar-treischl.de" width="95%"/>
 </figure>
 
 
@@ -304,7 +304,7 @@ background-size: 8%
 .pull-left[
 
 <div class="info-box">
-  <i>`r emoji::emoji("lightning")`️️</i> "styler formats your code according to the tidyverse style guide (https://style.tidyverse.org) (or your custom style guide) so you can direct your attention to the content of your code".
+  <i>`r emoji::emoji("parrot")`️️</i> "styler formats your code according to the tidyverse style guide (https://style.tidyverse.org) (or your custom style guide) so you can direct your attention to the content of your code".
 </div>
 
 
@@ -351,7 +351,7 @@ background-size: 8%
 .pull-left[
 
 <div class="info-box">
-  <i>`r emoji::emoji("lightning")`️</i>"lintr provides static code analysis for R. It checks for adherence to a given style, identifying syntax errors and possible semantic issues, then reports them to you so you can take action. ".
+  <i>`r emoji::emoji("parrot")`️</i>"lintr provides static code analysis for R. It checks for adherence to a given style, identifying syntax errors and possible semantic issues, then reports them to you so you can take action. ".
 </div>
 
 
@@ -417,15 +417,17 @@ class: bottom, center
 ---
 ## 02: devtools does the heavy lifting `r emoji::emoji("weight")`
 
+<div class="info-box">
+  <i>`r emoji::emoji("parrot")`</i> "The aim of devtools is to make package development easier by providing R functions that simplify and expedite common tasks. R Packages is a book based around this workflow." (Wickham et al. 2022)
+</div>
+
 
 .pull-left[
 
-<div class="info-box">
-  <i>`r emoji::emoji("lightning")`</i> The aim of devtools is to make package development easier by providing R functions that simplify and expedite common tasks. R Packages is a book based around this workflow.
-</div>
+
 
 <figure>
-    <a href="https://devtools.r-lib.org" target="_blank"><img src="images/devtools.png" alt="www.edgar-treischl.de" width="65%" align="center"/>
+    <a href="https://devtools.r-lib.org" target="_blank"><img src="images/devtools.png" alt="www.edgar-treischl.de" width="65%" align="right"/>
 </figure>
 
 ]
@@ -439,7 +441,13 @@ class: bottom, center
 
 
 ---
-## 02: usethis automates package and project setup
+## 02: usethis
+
+<div class="info-box">
+  <i>`r emoji::emoji("parrot")`</i> "usethis is a workflow package: it automates repetitive tasks that arise during project setup and development, both for R packages and non-package projects." (Wickham et al. 2022)
+</div>
+
+
 
 .pull-left[
 
@@ -558,7 +566,7 @@ background-size: 8%
 <br/>
 
 <div class="info-box">
-  <i>`r emoji::emoji("lightning")`</i> "Testing your code can be painful and tedious, but it greatly increases the quality of your code. testthat tries to make testing as fun as possible, so that you get a visceral satisfaction from writing tests. Testing should be addictive, so you do it all the time."
+  <i>`r emoji::emoji("parrot")`</i> "Testing your code can be painful and tedious, but it greatly increases the quality of your code. testthat tries to make testing as fun as possible, so that you get a visceral satisfaction from writing tests. Testing should be addictive, so you do it all the time."
 </div>
 
 <br/>
@@ -594,7 +602,7 @@ background-size: 8%
 .pull-left[
 
 <div class="info-box">
-  <i>`r emoji::emoji("lightning")`️</i>"Track test coverage for your R package and view reports locally or (optionally) upload the results to codecov or coveralls."
+  <i>`r emoji::emoji("parrot")`️</i>"Track test coverage for your R package and view reports locally or (optionally) upload the results to codecov or coveralls."
 </div>
 
 
@@ -658,7 +666,7 @@ background-size: 8%
 ### Describe your functions and ...
 
 <div class="info-box">
-  <i>`r emoji::emoji("wand")`️</i> "... roxygen2 will process your source code and comments to automatically generate .Rd files in man/, NAMESPACE, and, if needed, the Collate field in DESCRIPTION.". (XX et al.)
+  <i>`r emoji::emoji("parrot")`️</i> "... roxygen2 will process your source code and comments to automatically generate .Rd files in man/, NAMESPACE, and, if needed, the Collate field in DESCRIPTION.". (Wickham and Csárdi 2024)
 </div>
 
 
@@ -701,7 +709,7 @@ add <- function(x, y) {
 .pull-left[
 
 <div class="info-box">
-  <i>`r emoji::emoji("lightning")`️</i> "The goal of pkgdown is to make it easy to make an elegant and useful package website with a minimum of work. You can get a basic website up and running in just a couple of minutes. If you’re using GitHub, we recommend setting up pkgdown and GitHub actions to automatically build and publish your site". (Wickham et al.)
+  <i>`r emoji::emoji("parrot")`️</i> "The goal of pkgdown is to make it easy to make an elegant and useful package website with a minimum of work. You can get a basic website up and running in just a couple of minutes. If you’re using GitHub, we recommend setting up pkgdown and GitHub actions to automatically build and publish your site". (Wickham et al.)
 </div>
 
 
@@ -803,7 +811,7 @@ class: bottom, center
 ## 04: renv
 
 <div class="info-box">
-  <i>`r emoji::emoji("lightning")`</i> "The renv package helps you create reproducible environments for your R projects. Use renv to make your R projects more isolated, portable and reproducible.
+  <i>`r emoji::emoji("parrot")`</i> "The renv package helps you create reproducible environments for your R projects. Use renv to make your R projects more isolated, portable and reproducible.
 </div>
 
 .pull-left[
@@ -955,7 +963,7 @@ background-size: 8%
 ## 04: Docker and Rocker
 
 
-<div class="info-box"><i>`r emoji::emoji("lightning")`</i> The Rocker Project provides a collection of (Linux) containers suited for different needs. Find a base image to extend or images with popular software and optimized libraries pre-installed. </div>
+<div class="info-box"><i>`r emoji::emoji("parrot")`</i> The Rocker Project provides a collection of (Linux) containers suited for different needs. Find a base image to extend or images with popular software and optimized libraries pre-installed. </div>
 
 
 
@@ -1020,23 +1028,43 @@ class: center, middle
 
 ---
 
-## References
+## References (1/2)
 
 
 ```{r, print_refs, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+
+print(bib[key = "covr"], 
+  .opts = list(check.entries = FALSE, 
+               style = "html", 
+               bib.style = "authoryear"))
+
+print(bib[key = "lintr"], 
+  .opts = list(check.entries = FALSE, 
+               style = "html", 
+               bib.style = "authoryear"))
 
 print(bib[key = "here"], 
   .opts = list(check.entries = FALSE, 
                style = "html", 
                bib.style = "authoryear"))
 
-
-print(bib[key = "shiny"], 
-  .opts = list(check.entries = TRUE, 
+print(bib[key = "styler"], 
+  .opts = list(check.entries = FALSE, 
                style = "html", 
                bib.style = "authoryear"))
 
 print(bib[key = "treischl_practice_2023"], 
+  .opts = list(check.entries = FALSE, 
+               style = "html", 
+               bib.style = "authoryear"))
+
+
+print(bib[key = "wickham_r_2015"], 
+  .opts = list(check.entries = FALSE, 
+               style = "html", 
+               bib.style = "authoryear"))
+
+print(bib[key = "testthat"], 
   .opts = list(check.entries = FALSE, 
                style = "html", 
                bib.style = "authoryear"))
@@ -1046,7 +1074,29 @@ print(bib[key = "usethis"],
                style = "html", 
                bib.style = "authoryear"))
 
+```
+
+
+
+
+---
+
+## References (2/2)
+
+
+```{r, print_refs2, results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+
+print(bib[key = "sessioninfo"], 
+  .opts = list(check.entries = FALSE, 
+               style = "html", 
+               bib.style = "authoryear"))
+
 print(bib[key = "roxygen2"], 
+  .opts = list(check.entries = FALSE, 
+               style = "html", 
+               bib.style = "authoryear"))
+
+print(bib[key = "pkgdown"], 
   .opts = list(check.entries = FALSE, 
                style = "html", 
                bib.style = "authoryear"))
@@ -1056,12 +1106,12 @@ print(bib[key = "devtools"],
                style = "html", 
                bib.style = "authoryear"))
 
+print(bib[key = "knitr"], 
+  .opts = list(check.entries = FALSE, 
+               style = "html", 
+               bib.style = "authoryear"))
+
 ```
-
-
-
-
-
 
 
 
