@@ -304,7 +304,7 @@ background-size: 8%
 .pull-left[
 
 <div class="info-box">
-  <i>`r emoji::emoji("parrot")`️️</i> "styler formats your code according to the tidyverse style guide (https://style.tidyverse.org) (or your custom style guide) so you can direct your attention to the content of your code".
+  <i>`r emoji::emoji("parrot")`️️</i> "styler formats your code according to the tidyverse style guide (https://style.tidyverse.org) (or your custom style guide) so you can direct your attention to the content of your code" (Müller and Walthert 2024).
 </div>
 
 
@@ -344,14 +344,14 @@ background-position: 90% 5%
 background-size: 8%
 
 
-## 01: Lint
+## 01: Lintr
 
-<br/>
+
 
 .pull-left[
 
 <div class="info-box">
-  <i>`r emoji::emoji("parrot")`️</i>"lintr provides static code analysis for R. It checks for adherence to a given style, identifying syntax errors and possible semantic issues, then reports them to you so you can take action. ".
+  <i>`r emoji::emoji("parrot")`️</i>"lintr provides static code analysis for R. It checks for adherence to a given style, identifying syntax errors and possible semantic issues, then reports them to you so you can take action" (Hester et al. 2024).
 </div>
 
 
@@ -397,20 +397,21 @@ class: bottom, center
 ---
 ## 02: R Packages
 
+### I will not create something like ggplot2, so why should I create a package anyway? `r emoji::emoji("crazy")` 
+
 .pull-left[
 
+- *Reusability and Distribution*: Make sure everything needed to run is available. Plus: simplifies version control, dependency management, and installation.
+- *Organization and Maintainability*: A package encourages a clean and organized code, making it easier to maintain, update, and extend over time.
 
-- *Reusability and Distribution*: Make sure everything is under the hood and share with the world. Plus: simplifies version control, dependency management, and installation
-- *Organization and Maintainability*: A package encourages a clean and organized structure for your code (functions, documentation, tests), making it easier to maintain, update, and extend over time.
-
-- *Documentation*: A package allows you to include automatic documentation (help files, website, vignettes) , making it much easier for others - and the future yourself - to understand how it works.
+- *Documentation*: A package allows to include automatic documentation (help files, website, vignettes) , making it much easier for others - and the future yourself - to understand how it works.
 
 
 ]
 
 .pull-right[
 <figure>
-    <a href="https://r-pkgs.org" target="_blank"><img src="https://r-pkgs.org/images/cover-2e-small.png" alt="www.edgar-treischl.de" width="65%"/> <figcaption style = "color: darkgray;">'Hadley Wickham and Jennifer Bryan'</figcaption>
+    <a href="https://r-pkgs.org" target="_blank"><img src="https://r-pkgs.org/images/cover-2e-small.png" alt="www.edgar-treischl.de" width="65%"/>
 </figure>
 ]
 
@@ -566,7 +567,7 @@ background-size: 8%
 <br/>
 
 <div class="info-box">
-  <i>`r emoji::emoji("parrot")`</i> "Testing your code can be painful and tedious, but it greatly increases the quality of your code. testthat tries to make testing as fun as possible, so that you get a visceral satisfaction from writing tests. Testing should be addictive, so you do it all the time."
+  <i>`r emoji::emoji("parrot")`</i> "Testing your code can be painful and tedious, but it greatly increases the quality of your code. testthat tries to make testing as fun as possible, so that you get a visceral satisfaction from writing tests. Testing should be addictive, so you do it all the time. (Wickham 2011)"
 </div>
 
 <br/>
@@ -602,42 +603,30 @@ background-size: 8%
 .pull-left[
 
 <div class="info-box">
-  <i>`r emoji::emoji("parrot")`️</i>"Track test coverage for your R package and view reports locally or (optionally) upload the results to codecov or coveralls."
+  <i>`r emoji::emoji("parrot")`️</i>"Track test coverage for your R package and view reports locally or (optionally) upload the results to codecov or coveralls. (Hester 2023)"
 </div>
 
-
-
-
-]
-.pull-right[
 ```{r, eval =FALSE}
 # Inspect the test coverage
 covr::report()
 ```
 
+
+]
+.pull-right[
+
+<img src="images/covr1.png" style="width: 90%"/>
+
 ]
 
 
 ]
 
-.panel[.panel-name[Report]
-
-<img src="images/covr1.png" style="width: 50%"/>
-
-]
 
 .panel[.panel-name[Tracked Source]
- <img src="images/covr.png" style="width: 80%"/>
+ <img src="images/covr.png" style="width: 90%"/>
 ]
 
-.panel[.panel-name[...]
-
-- Work together
-- Host websites for projects
-- GitHub Gist
-- ...
-
-]
 ]
 
 
@@ -701,15 +690,18 @@ add <- function(x, y) {
 
 ]
 
----
 
+
+
+
+---
 
 ## 03 Document: pkgdown
 
 .pull-left[
 
 <div class="info-box">
-  <i>`r emoji::emoji("parrot")`️</i> "The goal of pkgdown is to make it easy to make an elegant and useful package website with a minimum of work. You can get a basic website up and running in just a couple of minutes. If you’re using GitHub, we recommend setting up pkgdown and GitHub actions to automatically build and publish your site". (Wickham et al.)
+  <i>`r emoji::emoji("parrot")`️</i> "The goal of pkgdown is to make it easy to make an elegant and useful package website with a minimum of work. You can get a basic website up and running in just a couple of minutes. If you’re using GitHub, we recommend setting up pkgdown and GitHub actions to automatically build and publish your site". (Wickham et al. 2024)
 </div>
 
 
@@ -717,7 +709,7 @@ add <- function(x, y) {
 
 .pull-right[
 <figure>
-    <a href="https://pkgdown.r-lib.org" target="_blank"><img src="https://pkgdown.r-lib.org/logo.png" alt="https://pkgdown.r-lib.org" width="50%" align="right"/>
+    <a href="https://pkgdown.r-lib.org" target="_blank"><img src="https://pkgdown.r-lib.org/logo.png" alt="https://pkgdown.r-lib.org" width="50%" align="center"/>
 </figure>
 ]
 
@@ -737,8 +729,9 @@ background-size: 8%
 
 ## 03 Document: pkgdown
 <br>
-<br>
-<img src="images/pkgdown.png" style="width: 90%"/>
+<div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; max-width:97%;">
+  <iframe src="https://pkgdown.r-lib.org" width="500" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%;"></iframe>
+</div>
 
 
 
@@ -811,7 +804,7 @@ class: bottom, center
 ## 04: renv
 
 <div class="info-box">
-  <i>`r emoji::emoji("parrot")`</i> "The renv package helps you create reproducible environments for your R projects. Use renv to make your R projects more isolated, portable and reproducible.
+  <i>`r emoji::emoji("parrot")`</i> "The renv package helps you create reproducible environments for your R projects. Use renv to make your R projects more isolated, portable and reproducible" (Ushey and Wickham 2024).
 </div>
 
 .pull-left[
@@ -889,43 +882,7 @@ background-size: 8%
 ```
 
 
----
-## 04: sessioninfo
 
-```{r}
-mysession <- sessioninfo::session_info()
-mysession$platform
-```
-
-
-Set the parameter: `to_file = "session.log"`  to export a log file
-
-
----
-## 04: sessioninfo
-
-
-
-```{r, eval = FALSE}
-sessioninfo::session_info(info = "external")
-```
-
-```bash
-═ Session info ═══════════════════════════════════════════════════════════════
-─ External software ──────────────────────────────────────────────────────────
- setting        value
- cairo          1.17.6
- cairoFT
- pango          1.50.14
- png            1.6.40
- jpeg           9.5
- tiff           LIBTIFF, Version 4.5.0
- tcl            8.6.13
- curl           8.7.1
- ...
-──────────────────────────────────────────────────────────────────────────────
-
-```
 
 
 
@@ -963,7 +920,7 @@ background-size: 8%
 ## 04: Docker and Rocker
 
 
-<div class="info-box"><i>`r emoji::emoji("parrot")`</i> The Rocker Project provides a collection of (Linux) containers suited for different needs. Find a base image to extend or images with popular software and optimized libraries pre-installed. </div>
+<div class="info-box"><i>`r emoji::emoji("parrot")`</i> The Rocker Project provides a collection of (Linux) containers suited for different needs. Find a base image to extend or images with popular software and optimized libraries pre-installed. (Rocker website) </div>
 
 
 
@@ -986,7 +943,43 @@ ENTRYPOINT ["Rscript", "hello.R"]
 ```
 
 
+---
+## 04: sessioninfo
 
+```{r}
+mysession <- sessioninfo::session_info()
+mysession$platform
+```
+
+
+Set the parameter: `to_file = "session.log"`  to export a log file
+
+
+---
+## 04: sessioninfo
+
+
+
+```{r, eval = FALSE}
+sessioninfo::session_info(info = "external")
+```
+
+```bash
+═ Session info ═══════════════════════════════════════════════════════════════
+─ External software ──────────────────────────────────────────────────────────
+ setting        value
+ cairo          1.17.6
+ cairoFT
+ pango          1.50.14
+ png            1.6.40
+ jpeg           9.5
+ tiff           LIBTIFF, Version 4.5.0
+ tcl            8.6.13
+ curl           8.7.1
+ ...
+──────────────────────────────────────────────────────────────────────────────
+
+```
 
 
 
@@ -1053,7 +1046,7 @@ print(bib[key = "styler"],
                style = "html", 
                bib.style = "authoryear"))
 
-print(bib[key = "treischl_practice_2023"], 
+print(bib[key = "renv"], 
   .opts = list(check.entries = FALSE, 
                style = "html", 
                bib.style = "authoryear"))

@@ -90,7 +90,7 @@ class: center, middle
 &lt;a href="http://www.edgar-treischl.de" target="_blank"&gt;www.edgar-treischl.de&lt;/a&gt;
 &lt;br/&gt;
 &lt;br/&gt;
-.large[Last update: 2024-12-31]
+.large[Last update: 2025-01-01]
 &lt;br/&gt;
 &lt;br/&gt;
 This presentation is licensed under a CC-BY-NC 4.0 license.
@@ -128,7 +128,7 @@ You may copy, distribute, and use the slides in your own work, as long as you gi
 
 ### 01 Develop 💭
 ### 02 Build 🚧
-### 03 Document 📝
+### 03 Document 📄
 ### 04 Deploy 🏃‍♀️‍➡️
 
 
@@ -240,7 +240,7 @@ here::here("data", "descriptive_title.csv")
 
 ## 01: R vs. Rmd
 
-### 🖐️ Code lives in R, Code and Text in Rmd files
+### 🫰 Code lives in R, Code and Text in Rmd files
 
 If you need to create a document from a source code, run:
 
@@ -305,7 +305,7 @@ background-size: 8%
 .pull-left[
 
 &lt;div class="info-box"&gt;
-  &lt;i&gt;🦜️️&lt;/i&gt; "styler formats your code according to the tidyverse style guide (https://style.tidyverse.org) (or your custom style guide) so you can direct your attention to the content of your code".
+  &lt;i&gt;🦜️️&lt;/i&gt; "styler formats your code according to the tidyverse style guide (https://style.tidyverse.org) (or your custom style guide) so you can direct your attention to the content of your code" (Müller and Walthert 2024).
 &lt;/div&gt;
 
 
@@ -354,14 +354,14 @@ background-position: 90% 5%
 background-size: 8%
 
 
-## 01: Lint
+## 01: Lintr
 
-&lt;br/&gt;
+
 
 .pull-left[
 
 &lt;div class="info-box"&gt;
-  &lt;i&gt;🦜️&lt;/i&gt;"lintr provides static code analysis for R. It checks for adherence to a given style, identifying syntax errors and possible semantic issues, then reports them to you so you can take action. ".
+  &lt;i&gt;🦜️&lt;/i&gt;"lintr provides static code analysis for R. It checks for adherence to a given style, identifying syntax errors and possible semantic issues, then reports them to you so you can take action" (Hester et al. 2024).
 &lt;/div&gt;
 
 
@@ -388,7 +388,7 @@ lintr::lint(text = 'myFunction &lt;- function(x, y) {
 
 
 
-There are even more goodies 🦹‍♀️ if you develop an R package:
+There are even more goodies 🦹 if you develop an R package:
 
 
 ``` r
@@ -407,7 +407,7 @@ class: bottom, center
 
 
 
-## .white[Let's build ... 🖤] 
+## .white[Let's build ... 🦹‍♀️] 
 
 &lt;div class="remark-footer"&gt;&lt;a href="https://gifer.com/de/8rTu" target="_blank" style="color: black;"&gt;Source: Mark Hamill&lt;/a&gt;&lt;/div&gt;
 
@@ -415,25 +415,26 @@ class: bottom, center
 ---
 ## 02: R Packages
 
+### I will not create something like ggplot2, so why should I create a package anyway? 😳 
+
 .pull-left[
 
+- *Reusability and Distribution*: Make sure everything needed to run is available. Plus: simplifies version control, dependency management, and installation.
+- *Organization and Maintainability*: A package encourages a clean and organized code, making it easier to maintain, update, and extend over time.
 
-- *Reusability and Distribution*: Make sure everything is under the hood and share with the world. Plus: simplifies version control, dependency management, and installation
-- *Organization and Maintainability*: A package encourages a clean and organized structure for your code (functions, documentation, tests), making it easier to maintain, update, and extend over time.
-
-- *Documentation*: A package allows you to include automatic documentation (help files, website, vignettes) , making it much easier for others - and the future yourself - to understand how it works.
+- *Documentation*: A package allows to include automatic documentation (help files, website, vignettes) , making it much easier for others - and the future yourself - to understand how it works.
 
 
 ]
 
 .pull-right[
 &lt;figure&gt;
-    &lt;a href="https://r-pkgs.org" target="_blank"&gt;&lt;img src="https://r-pkgs.org/images/cover-2e-small.png" alt="www.edgar-treischl.de" width="65%"/&gt; &lt;figcaption style = "color: darkgray;"&gt;'Hadley Wickham and Jennifer Bryan'&lt;/figcaption&gt;
+    &lt;a href="https://r-pkgs.org" target="_blank"&gt;&lt;img src="https://r-pkgs.org/images/cover-2e-small.png" alt="www.edgar-treischl.de" width="65%"/&gt;
 &lt;/figure&gt;
 ]
 
 ---
-## 02: devtools does the heavy lifting 🏋️‍♀️
+## 02: devtools does the heavy lifting 🏋️
 
 &lt;div class="info-box"&gt;
   &lt;i&gt;🦜&lt;/i&gt; "The aim of devtools is to make package development easier by providing R functions that simplify and expedite common tasks. R Packages is a book based around this workflow." (Wickham et al. 2022)
@@ -574,7 +575,7 @@ background-image: url("https://i.gifer.com/8Bx3.gif")
 background-size: cover
 class: bottom, center
 
-# .black[... but don't forget to test 🪿] 
+# .black[... but don't forget to test 😜] 
 
 
 &lt;div class="remark-footer"&gt;&lt;a href="https://gifer.com/de/8Bx3" target="_blank" style="color: black;"&gt;Source: Gifer&lt;/a&gt;&lt;/div&gt;
@@ -588,7 +589,7 @@ background-size: 8%
 &lt;br/&gt;
 
 &lt;div class="info-box"&gt;
-  &lt;i&gt;🦜&lt;/i&gt; "Testing your code can be painful and tedious, but it greatly increases the quality of your code. testthat tries to make testing as fun as possible, so that you get a visceral satisfaction from writing tests. Testing should be addictive, so you do it all the time."
+  &lt;i&gt;🦜&lt;/i&gt; "Testing your code can be painful and tedious, but it greatly increases the quality of your code. testthat tries to make testing as fun as possible, so that you get a visceral satisfaction from writing tests. Testing should be addictive, so you do it all the time. (Wickham 2011)"
 &lt;/div&gt;
 
 &lt;br/&gt;
@@ -625,43 +626,31 @@ background-size: 8%
 .pull-left[
 
 &lt;div class="info-box"&gt;
-  &lt;i&gt;🦜️&lt;/i&gt;"Track test coverage for your R package and view reports locally or (optionally) upload the results to codecov or coveralls."
+  &lt;i&gt;🦜️&lt;/i&gt;"Track test coverage for your R package and view reports locally or (optionally) upload the results to codecov or coveralls. (Hester 2023)"
 &lt;/div&gt;
 
-
-
-
-]
-.pull-right[
 
 ``` r
 # Inspect the test coverage
 covr::report()
 ```
 
+
+]
+.pull-right[
+
+&lt;img src="images/covr1.png" style="width: 90%"/&gt;
+
 ]
 
 
 ]
 
-.panel[.panel-name[Report]
-
-&lt;img src="images/covr1.png" style="width: 50%"/&gt;
-
-]
 
 .panel[.panel-name[Tracked Source]
- &lt;img src="images/covr.png" style="width: 80%"/&gt;
+ &lt;img src="images/covr.png" style="width: 90%"/&gt;
 ]
 
-.panel[.panel-name[...]
-
-- Work together
-- Host websites for projects
-- GitHub Gist
-- ...
-
-]
 ]
 
 
@@ -726,15 +715,18 @@ add &lt;- function(x, y) {
 
 ]
 
----
 
+
+
+
+---
 
 ## 03 Document: pkgdown
 
 .pull-left[
 
 &lt;div class="info-box"&gt;
-  &lt;i&gt;🦜️&lt;/i&gt; "The goal of pkgdown is to make it easy to make an elegant and useful package website with a minimum of work. You can get a basic website up and running in just a couple of minutes. If you’re using GitHub, we recommend setting up pkgdown and GitHub actions to automatically build and publish your site". (Wickham et al.)
+  &lt;i&gt;🦜️&lt;/i&gt; "The goal of pkgdown is to make it easy to make an elegant and useful package website with a minimum of work. You can get a basic website up and running in just a couple of minutes. If you’re using GitHub, we recommend setting up pkgdown and GitHub actions to automatically build and publish your site". (Wickham et al. 2024)
 &lt;/div&gt;
 
 
@@ -742,7 +734,7 @@ add &lt;- function(x, y) {
 
 .pull-right[
 &lt;figure&gt;
-    &lt;a href="https://pkgdown.r-lib.org" target="_blank"&gt;&lt;img src="https://pkgdown.r-lib.org/logo.png" alt="https://pkgdown.r-lib.org" width="50%" align="right"/&gt;
+    &lt;a href="https://pkgdown.r-lib.org" target="_blank"&gt;&lt;img src="https://pkgdown.r-lib.org/logo.png" alt="https://pkgdown.r-lib.org" width="50%" align="center"/&gt;
 &lt;/figure&gt;
 ]
 
@@ -762,8 +754,9 @@ background-size: 8%
 
 ## 03 Document: pkgdown
 &lt;br&gt;
-&lt;br&gt;
-&lt;img src="images/pkgdown.png" style="width: 90%"/&gt;
+&lt;div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; max-width:97%;"&gt;
+  &lt;iframe src="https://pkgdown.r-lib.org" width="500" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%;"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
 
 
 
@@ -838,7 +831,7 @@ class: bottom, center
 ## 04: renv
 
 &lt;div class="info-box"&gt;
-  &lt;i&gt;🦜&lt;/i&gt; "The renv package helps you create reproducible environments for your R projects. Use renv to make your R projects more isolated, portable and reproducible.
+  &lt;i&gt;🦜&lt;/i&gt; "The renv package helps you create reproducible environments for your R projects. Use renv to make your R projects more isolated, portable and reproducible" (Ushey and Wickham 2024).
 &lt;/div&gt;
 
 .pull-left[
@@ -916,60 +909,7 @@ background-size: 8%
 ```
 
 
----
-## 04: sessioninfo
 
-
-``` r
-mysession &lt;- sessioninfo::session_info()
-mysession$platform
-```
-
-```
-##  setting  value
-##  version  R version 4.4.2 (2024-10-31)
-##  os       macOS Sequoia 15.2
-##  system   aarch64, darwin20
-##  ui       RStudio
-##  language (EN)
-##  collate  en_US.UTF-8
-##  ctype    en_US.UTF-8
-##  tz       Europe/Berlin
-##  date     2024-12-31
-##  rstudio  2024.12.0+467 Kousa Dogwood (desktop)
-##  pandoc   3.3 @ /opt/homebrew/bin/ (via rmarkdown)
-```
-
-
-Set the parameter: `to_file = "session.log"`  to export a log file
-
-
----
-## 04: sessioninfo
-
-
-
-
-``` r
-sessioninfo::session_info(info = "external")
-```
-
-```bash
-═ Session info ═══════════════════════════════════════════════════════════════
-─ External software ──────────────────────────────────────────────────────────
- setting        value
- cairo          1.17.6
- cairoFT
- pango          1.50.14
- png            1.6.40
- jpeg           9.5
- tiff           LIBTIFF, Version 4.5.0
- tcl            8.6.13
- curl           8.7.1
- ...
-──────────────────────────────────────────────────────────────────────────────
-
-```
 
 
 
@@ -1007,7 +947,7 @@ background-size: 8%
 ## 04: Docker and Rocker
 
 
-&lt;div class="info-box"&gt;&lt;i&gt;🦜&lt;/i&gt; The Rocker Project provides a collection of (Linux) containers suited for different needs. Find a base image to extend or images with popular software and optimized libraries pre-installed. &lt;/div&gt;
+&lt;div class="info-box"&gt;&lt;i&gt;🦜&lt;/i&gt; The Rocker Project provides a collection of (Linux) containers suited for different needs. Find a base image to extend or images with popular software and optimized libraries pre-installed. (Rocker website) &lt;/div&gt;
 
 
 
@@ -1030,7 +970,59 @@ ENTRYPOINT ["Rscript", "hello.R"]
 ```
 
 
+---
+## 04: sessioninfo
 
+
+``` r
+mysession &lt;- sessioninfo::session_info()
+mysession$platform
+```
+
+```
+##  setting  value
+##  version  R version 4.4.2 (2024-10-31)
+##  os       macOS Sequoia 15.2
+##  system   aarch64, darwin20
+##  ui       X11
+##  language (EN)
+##  collate  en_US.UTF-8
+##  ctype    en_US.UTF-8
+##  tz       Europe/Berlin
+##  date     2025-01-01
+##  pandoc   3.2 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/aarch64/ (via rmarkdown)
+```
+
+
+Set the parameter: `to_file = "session.log"`  to export a log file
+
+
+---
+## 04: sessioninfo
+
+
+
+
+``` r
+sessioninfo::session_info(info = "external")
+```
+
+```bash
+═ Session info ═══════════════════════════════════════════════════════════════
+─ External software ──────────────────────────────────────────────────────────
+ setting        value
+ cairo          1.17.6
+ cairoFT
+ pango          1.50.14
+ png            1.6.40
+ jpeg           9.5
+ tiff           LIBTIFF, Version 4.5.0
+ tcl            8.6.13
+ curl           8.7.1
+ ...
+──────────────────────────────────────────────────────────────────────────────
+
+```
 
 
 
@@ -1089,28 +1081,26 @@ URL: &lt;a href="https://CRAN.R-project.org/package=lintr"&gt;https://CRAN.R-pro
 R package version 1.0.1.
 URL: &lt;a href="https://CRAN.R-project.org/package=here"&gt;https://CRAN.R-project.org/package=here&lt;/a&gt;.&lt;/cite&gt;&lt;/p&gt;
 &lt;p&gt;&lt;cite&gt;Müller, K. and L. Walthert
-(2022).
+(2024).
 &lt;em&gt;styler: Non-Invasive Pretty Printing of R Code&lt;/em&gt;.
-R package version 1.7.0.
 URL: &lt;a href="https://CRAN.R-project.org/package=styler"&gt;https://CRAN.R-project.org/package=styler&lt;/a&gt;.&lt;/cite&gt;&lt;/p&gt;
-&lt;p&gt;&lt;cite&gt;Treischl, E. J.
-(2023).
-&lt;em&gt;Practice R: An interactive textbook&lt;/em&gt;.
-Publication Title: Practice R.
-De Gruyter Oldenbourg.&lt;/cite&gt;&lt;/p&gt;
+&lt;p&gt;&lt;cite&gt;Ushey, K. and H. Wickham
+(2024).
+&lt;em&gt;renv: Project Environments&lt;/em&gt;.
+URL: &lt;a href="https://CRAN.R-project.org/package=renv"&gt;https://CRAN.R-project.org/package=renv&lt;/a&gt;.&lt;/cite&gt;&lt;/p&gt;
 &lt;p&gt;&lt;cite&gt;Wickham, H.
 (2023).
 &lt;em&gt;R Packages: Organize, Test, Document, and Share Your Code&lt;/em&gt;.
-Sebastopol, CA: O'Reilly.&lt;/cite&gt;&lt;/p&gt;
+Sebastopol, CA: O'Reilly.
+URL: &lt;a href="https://r-pkgs.org"&gt;https://r-pkgs.org&lt;/a&gt;.&lt;/cite&gt;&lt;/p&gt;
 &lt;p&gt;&lt;cite&gt;Wickham, H.
 (2011).
 &amp;ldquo;testthat: Get Started with Testing&amp;rdquo;.
 In: &lt;em&gt;The R Journal&lt;/em&gt; 3, pp. 5&amp;ndash;10.
 URL: &lt;a href="https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf"&gt;https://journal.r-project.org/archive/2011-1/RJournal_2011-1_Wickham.pdf&lt;/a&gt;.&lt;/cite&gt;&lt;/p&gt;
 &lt;p&gt;&lt;cite&gt;Wickham, H., J. Bryan, and M. Barrett
-(2022).
+(2024).
 &lt;em&gt;usethis: Automate Package and Project Setup&lt;/em&gt;.
-R package version 2.1.6.
 URL: &lt;a href="https://CRAN.R-project.org/package=usethis"&gt;https://CRAN.R-project.org/package=usethis&lt;/a&gt;.&lt;/cite&gt;&lt;/p&gt;
 
 
