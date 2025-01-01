@@ -237,7 +237,9 @@ here::here("data", "descriptive_title.csv")
 
 
 ---
-
+background-image: url(https://github.com/rstudio/hex-stickers/blob/main/PNG/knitr.png?raw=true)
+background-position: 90% 5%
+background-size: 8%
 
 ## 01: R vs. Rmd
 
@@ -263,7 +265,7 @@ knitr::purl()
 ```
 
 - Adjust the level of extraction with the `documentation` parameter (e.g., code only)
-- Set `purl = FALSE` to avoid the extraction of code chunks
+- Set `purl = FALSE` to avoid the extraction of code chunks (see Xie 2024)
 
 
 

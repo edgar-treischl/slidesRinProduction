@@ -128,7 +128,7 @@ You may copy, distribute, and use the slides in your own work, as long as you gi
 
 ### 01 Develop 💭
 ### 02 Build 🚧
-### 03 Document 📄
+### 03 Document 📝
 ### 04 Deploy 🏃‍♀️‍➡️
 
 
@@ -236,11 +236,13 @@ here::here("data", "descriptive_title.csv")
 
 
 ---
-
+background-image: url(https://github.com/rstudio/hex-stickers/blob/main/PNG/knitr.png?raw=true)
+background-position: 90% 5%
+background-size: 8%
 
 ## 01: R vs. Rmd
 
-### 🫰 Code lives in R, Code and Text in Rmd files
+### 🤞 Code lives in R, Code and Text in Rmd files
 
 If you need to create a document from a source code, run:
 
@@ -264,7 +266,7 @@ knitr::purl()
 ```
 
 - Adjust the level of extraction with the `documentation` parameter (e.g., code only)
-- Set `purl = FALSE` to avoid the extraction of code chunks
+- Set `purl = FALSE` to avoid the extraction of code chunks (see Xie 2024)
 
 
 
@@ -388,7 +390,7 @@ lintr::lint(text = 'myFunction &lt;- function(x, y) {
 
 
 
-There are even more goodies 🦹 if you develop an R package:
+There are even more goodies 👎 if you develop an R package:
 
 
 ``` r
@@ -407,7 +409,7 @@ class: bottom, center
 
 
 
-## .white[Let's build ... 🦹‍♀️] 
+## .white[Let's build ... 🦹] 
 
 &lt;div class="remark-footer"&gt;&lt;a href="https://gifer.com/de/8rTu" target="_blank" style="color: black;"&gt;Source: Mark Hamill&lt;/a&gt;&lt;/div&gt;
 
@@ -415,7 +417,7 @@ class: bottom, center
 ---
 ## 02: R Packages
 
-### I will not create something like ggplot2, so why should I create a package anyway? 😳 
+### I will not create something like ggplot2, so why should I create a package anyway? 🫨 
 
 .pull-left[
 
@@ -434,7 +436,7 @@ class: bottom, center
 ]
 
 ---
-## 02: devtools does the heavy lifting 🏋️
+## 02: devtools does the heavy lifting 🏋️‍♂️
 
 &lt;div class="info-box"&gt;
   &lt;i&gt;🦜&lt;/i&gt; "The aim of devtools is to make package development easier by providing R functions that simplify and expedite common tasks. R Packages is a book based around this workflow." (Wickham et al. 2022)
