@@ -93,13 +93,15 @@ meta() %>%
 ```
 
 
-  
-# Make it reproducibleR
+```{r, results='asis', echo=FALSE}
+cat(readLines("github-corner.html"), sep = "\n")
+```
 
-## Put R in Production
 
-.large[Dr. Edgar J. Treischl] <br>
-<a href="http://www.edgar-treischl.de" target="_blank">www.edgar-treischl.de</a>
+## Make it reproducibleR: Put R in Production
+
+### <a href="http://www.edgar-treischl.de" target="_blank">Dr. Edgar J. Treischl</a>
+
 <br/>
 <br/>
 .large[Last update: `r Sys.Date()`]
@@ -111,12 +113,6 @@ You may copy, distribute, and use the slides in your own work, as long as you gi
 <div class="remark-footer">
   <!-- Left-aligned image -->
   <img src="images/by-nceu.png" alt="Image left" width="150px" class="footer-left"/>
-  
-  <!-- Right-aligned GitHub logo -->
-  <a href="https://github.com/edgar-treischl/Workshop_reproducibleR" target="_blank">
-    <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" 
-         alt="GitHub logo" class="footer-right"/>
-  </a>
 </div>
 
 
@@ -309,6 +305,7 @@ background-size: 8%
   <i>`r emoji::emoji("parrot")`️️</i> "styler formats your code according to the tidyverse style guide (https://style.tidyverse.org) (or your custom style guide) so you can direct your attention to the content of your code" (Müller and Walthert 2024).
 </div>
 
+#### `r emoji::emoji("lightning")` Easily apply tidyverse style or adjust and and apply your own style guide
 
 ]
 
@@ -328,9 +325,10 @@ styler::style_text(
 ]
 
 
-There a goodies if you develop an R package:
+#### There a goodies `r emoji::emoji("heart")` if you develop an R package:
 
 ```{r, eval=FALSE}
+#Stlye your package code, but automate via GitHub Actions
 styler::style_pkg()
 ```
 
