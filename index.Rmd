@@ -7,6 +7,8 @@ output:
     seal: false
     #chakra: libs/remark-latest.min.js
     lib_dir: libs
+    in_header: |
+        <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
     nature:
       ratio: '16:9'
       highlightStyle: github
@@ -14,8 +16,9 @@ output:
       countIncrementalSlides: false
       titleSlideClass: [center, middle]
 ---
-
-class: center, middle
+background-image: url("images/bg_web.png")
+background-size: cover
+class: right, bottom
 
 
 
@@ -49,19 +52,12 @@ ui <- "- "
 
 ```{r best-features, echo=FALSE}
 #search
-xaringanExtra::use_search(show_icon = TRUE, position = "top-right")
+#xaringanExtra::use_search(show_icon = TRUE, position = "top-right")
 
 xaringanExtra::use_progress_bar(color = "#023047", location = "top")
-
-xaringanExtra::style_search(match_background = "black",
-                            input_background = "white",
-                            input_border = "black",
-                            match_current_background = "green")
-
-
 xaringanExtra::use_panelset()
-
 xaringanExtra::use_clipboard()
+xaringanExtra::use_tile_view()
 
 ```
 
@@ -98,31 +94,19 @@ cat(readLines("github-corner.html"), sep = "\n")
 ```
 
 
-## Make it reproducibleR: Put R in Production
+## <h1 style="font-family: 'Bangers', sans-serif; font-size: 65px; color: #ffff;">R in Production</h1>
 
-### <a href="http://www.edgar-treischl.de" target="_blank">Dr. Edgar J. Treischl</a>
+
+<h2><a href="http://www.edgar-treischl.de" target="_blank" style="color:#ffff;">Dr. Edgar J. Treischl</a></h2>
 
 <br/>
 <br/>
-.large[Last update: `r Sys.Date()`]
+.white[Last update: `r Sys.Date()`]
 <br/>
 <br/>
-This presentation is licensed under a CC-BY-NC 4.0 license.
-You may copy, distribute, and use the slides in your own work, as long as you give attribution to the original author on each slide that you use. Commercial use of the contents of these slides is not allowed.
-
-<div class="remark-footer">
-  <!-- Left-aligned image -->
-  <img src="images/by-nceu.png" alt="Image left" width="150px" class="footer-left"/>
-</div>
+<h4 style = "color:#ffff; text-align: right;">Press `r emoji::emoji("o")` or `r emoji::emoji("arrow_right")`</h4>
 
 
-
-
-```{css, echo = F}
-.reduced_opacity {
-  opacity: 0.5;
-}
-```
 
 
 ---
@@ -161,7 +145,7 @@ class: top, center
 
 ## .white[Develop, but get rid of bad habits first <br> `r emoji::emoji("smile")`] 
 
-<div class="remark-footer"><a href="https://giphy.com/gifs/moodman-batman-smack-smacked-Qumf2QovTD4QxHPjy5" target="_blank" style="color: white;">Source: MOODMAN</a></div>
+<div class="remark-footer"><a href="https://giphy.com/gifs/moodman-batman-smack-smacked-Qumf2QovTD4QxHPjy5" target="_blank" style="color: white;">Images source: MOODMAN</a></div>
 
 
 ---
