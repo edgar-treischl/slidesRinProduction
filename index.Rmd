@@ -7,8 +7,6 @@ output:
     seal: false
     #chakra: libs/remark-latest.min.js
     lib_dir: libs
-    in_header: |
-        <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
     nature:
       ratio: '16:9'
       highlightStyle: github
@@ -94,10 +92,10 @@ cat(readLines("github-corner.html"), sep = "\n")
 ```
 
 
-## <h1 style="font-family: 'Bangers', sans-serif; font-size: 65px; color: #ffff;">R in Production</h1>
+<h1 style="font-family: 'Bangers', sans-serif; font-size: 65px; color: #ffff;">R in Production</h1>
 
 
-<h2><a href="http://www.edgar-treischl.de" target="_blank" style="color:#ffff;">Dr. Edgar J. Treischl</a></h2>
+<h2><a href="http://www.edgar-treischl.de" target="_blank" style="font-family: 'Bangers', sans-serif; font-size: 45px; color: #ffff;">Edgar J. Treischl</a></h2>
 
 <br/>
 <br/>
@@ -969,37 +967,35 @@ sessioninfo::session_info(info = "external")
 
 
 
+---
+class: right, middle
+
+
+## Thank you for your attention!
+
+<img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/77931249?s=400&u=eaf1d0871b643dd32cc0ff9f777edef28e6569a8&v=4" width="150px"/>
+
+
+
+[`r icons::fontawesome("rocket")` www.edgar-treischl.de](https://www.edgar-treischl.de)
+
+[`r icons::fontawesome("github")` edgar-treischl](https://github.com/edgar-treischl)
+
+[`r icons::fontawesome("envelope")` edgar.treischl@isb.bayern.de](mailto:edgar.treischl@isb.bayern.de)
+
 
 
 
 ---
-class: center, middle
+class: right, middle
 
-.left-column[
+## Licence
 
-## Keep in touch
-
-#### <a href="https://edgar-treischl.de" target="_blank"><img src="https://avatars.githubusercontent.com/u/77931249?s=400&u=eaf1d0871b643dd32cc0ff9f777edef28e6569a8&v=4" alt="www.edgar-treischl.de" width="25%"/><br/>www.edgar-treischl.de</a>
+This presentation is licensed under a CC-BY-NC 4.0 license.
+You may copy, distribute, and use the slides in your own work, as long as you give attribution to the original author on each slide that you use. Commercial use of the contents of these slides is not allowed.
 <br/>
-
-#### <a href="https://github.com/edgar-treischl/Workshop_reproducibleR" target="_blank"><img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="https://github.com/edgar-treischl" width="30%"/><br/>edgar-treischl</a>
-
-
-]
-
-.right-column[
-
-
-## Thank you for your attention!
 <br/>
-
-<img src="https://i.gifer.com/D71m.gif" style="width: 40%"/>
-
-]
-
-
-
-
+<img src="images/by-nceu.png" alt="Image left" width="150px"/>
 
 
 
