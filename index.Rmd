@@ -16,7 +16,7 @@ output:
 ---
 background-image: url("images/bg_web.png")
 background-size: cover
-class: right, bottom
+class: left, bottom
 
 
 
@@ -92,10 +92,11 @@ cat(readLines("github-corner.html"), sep = "\n")
 ```
 
 
-<h1 style="font-family: 'Bangers', sans-serif; font-size: 65px; color: #ffff;">R in Production</h1>
+<h1 style="font-family: 'Bangers', sans-serif; font-size: 65px; color: #ffff;">Put R in</h1>
+<h1 style="font-family: 'Bangers', sans-serif; font-size: 65px; color: #ffff;">Production</h1>
 
 
-<h2><a href="http://www.edgar-treischl.de" target="_blank" style="font-family: 'Bangers', sans-serif; font-size: 45px; color: #ffff;">Edgar J. Treischl</a></h2>
+<h2><a href="http://www.edgar-treischl.de" target="_blank" style="font-family: 'Bangers', sans-serif; font-size: 40px; color: #ffff;">Edgar J. Treischl</a></h2>
 
 <br/>
 <br/>
@@ -105,6 +106,7 @@ cat(readLines("github-corner.html"), sep = "\n")
 <h4 style = "color:#ffff; text-align: right;">Press `r emoji::emoji("o")` or `r emoji::emoji("arrow_right")`</h4>
 
 
+<div class="remark-footer"><a href="https://unsplash.com/de/@sajjadahmadi" target="_blank" style="color: gray;">Images: Sajjad Ahmadi</a></div>
 
 
 ---
