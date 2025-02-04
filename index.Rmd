@@ -1,5 +1,5 @@
 ---
-title: "Make it reproducibleR"
+title: "Put R in Production"
 date: "Last update: `r Sys.Date()`"
 output:
   xaringan::moon_reader:
@@ -64,25 +64,28 @@ xaringanExtra::use_tile_view()
 library(xaringanthemer)
 style_mono_accent(
   base_color = "black",
-  header_font_google = google_font("Lato"),
-  text_font_google   = google_font("Montserrat", "300", "300i"),
+  header_font_google = google_font("Commissioner"),
+  text_font_google   = google_font("EB Garamond"),
   code_font_google   = google_font("Fira Code")
 )
+
 ```
 
 ```{r meta, echo=FALSE}
 library(metathis)
 meta() %>%
   meta_general(
-    description = "A overview how to put R code into production.",
+    description = "A Overview how to Put R Code in Production.",
     generator = "xaringan and remark.js"
   ) %>% 
   meta_name("github-repo" = "edgar-treischl/Workshop_GitHubIntro") %>% 
   meta_social(
-    title = "Make it reproducibleR: Put R in Production",
+    title = "Put R in Production",
     url = "https://edgar-treischl.github.io/Workshop_reproducibleR/",
     og_type = "website",
-    og_author = "Edgar J. Treischl"
+    og_author = "Edgar J. Treischl",
+    image = "https://edgar-treischl.github.io/Workshop_GitHubIntro/images/preview.png",
+    image_alt = "Preview Slide"
   )
 ```
 
@@ -94,14 +97,11 @@ cat(readLines("github-corner.html"), sep = "\n")
 
 <h1 style="font-family: 'Bangers', sans-serif; font-size: 65px; color: #ffff;">Put R in</h1>
 <h1 style="font-family: 'Bangers', sans-serif; font-size: 65px; color: #ffff;">Production</h1>
-
-
-<h2><a href="http://www.edgar-treischl.de" target="_blank" style="font-family: 'Bangers', sans-serif; font-size: 40px; color: #ffff;">Edgar J. Treischl</a></h2>
-
 <br/>
+<p><a href="http://www.edgar-treischl.de" target="_blank" style="font-size: 30px; color: #ffff;">Edgar J. Treischl</a></p>
+
 <br/>
 .white[Last update: `r Sys.Date()`]
-<br/>
 <br/>
 <h4 style = "color:#ffff; text-align: right;">Press `r emoji::emoji("o")` or `r emoji::emoji("arrow_right")`</h4>
 
@@ -134,33 +134,39 @@ cat(readLines("github-corner.html"), sep = "\n")
 
 ]
 
+---
+
+class: middle, center, inverse
+
+## Let's face the truth ...
+
 
 
 
 ---
 background-image: url("https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTNpOWh5ZmJsdnk1Mnh0OGYxNHhvajZwNzFzbHZoNWw4aXAyY2c4YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Qumf2QovTD4QxHPjy5/giphy.gif")
 background-size: cover
-class: top, center
+class: bottom, center
 
 
-## .white[Develop, but get rid of bad habits first <br> `r emoji::emoji("smile")`] 
+## .white[... develop, but get rid of bad habits first <br> `r emoji::emoji("smile")`] 
 
 <div class="remark-footer"><a href="https://giphy.com/gifs/moodman-batman-smack-smacked-Qumf2QovTD4QxHPjy5" target="_blank" style="color: white;">Images source: MOODMAN</a></div>
 
 
 ---
-## 01: Start with a clean slate ...
+## 01: Start with a clean slate and restart R
 
 .pull-left[
 
-- and restart R: Do not save the workspace and do not load the workspace from an `.Rdata` file (Based on Bryan et al. 2021). 
+- Do not save the workspace and do not load the workspace from an `.Rdata` file (Based on Bryan et al. 2021). 
 
-
-### Abandon the rm approach `r emoji::emoji("skull")`
+ 
+### The rm approach `r emoji::emoji("shoot")`
 
 - `rm(list = ls())` deletes user-created objects from the global workspace.
 
-- The script may break due to hidden dependencies on things you ran in this R process before you executed: Attached packages are not detached, changed options are not restored, working directory is untouched!
+- **But**: The script may break due to hidden dependencies on things you ran in this R process before you executed: Attached packages are not detached, changed options are not restored, working directory is untouched!
 
 
 
@@ -177,7 +183,7 @@ class: top, center
 
 ---
 
-## 01: Don't Go Places Where You Don't Belong
+## Don't Go Places Where You Don't Belong ...
 
 <img src="images/drake.png" style="width: 65%"/>
 
@@ -186,25 +192,25 @@ class: top, center
 
 ## 01: Fix paths with the here package
 
-### Abandon absolute paths, they will break anyway `r emoji::emoji("skull")`
+#### Abandon absolute paths, they will break anyway `r emoji::emoji("lightning")`
 
 
 
-```{r, eval=FALSE}
-#Don't:
+```{r, eval=TRUE, error=TRUE}
+# Don't:
 readr::read_csv("~/Documents/Berichte/orig/104_data.csv")
 ```
 
-Create a project and use the `here` package:
+#### Ceate a project and use the `here` package:
 
 ```{r}
-#Here returns the path to the project
+# Here returns the path to the project
 here::here()
 ```
 
 
 ```{r, eval=TRUE}
-#Create a path to the data file
+# Create a path to the file
 here::here("data", "descriptive_title.csv")
 ```
 

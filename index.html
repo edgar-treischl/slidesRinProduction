@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Make it reproducibleR</title>
+    <title>Put R in Production</title>
     <meta charset="utf-8" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <script src="libs/xaringanExtra-progressBar/progress-bar.js"></script>
@@ -13,16 +13,20 @@
     <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view/tile-view.js"></script>
-    <meta name="description" content="A overview how to put R code into production."/>
+    <meta name="description" content="A Overview how to Put R Code in Production."/>
     <meta name="generator" content="xaringan and remark.js"/>
     <meta name="github-repo" content="edgar-treischl/Workshop_GitHubIntro"/>
-    <meta name="twitter:title" content="Make it reproducibleR: Put R in Production"/>
-    <meta name="twitter:description" content="A overview how to put R code into production."/>
+    <meta name="twitter:title" content="Put R in Production"/>
+    <meta name="twitter:description" content="A Overview how to Put R Code in Production."/>
     <meta name="twitter:url" content="https://edgar-treischl.github.io/Workshop_reproducibleR/"/>
+    <meta name="twitter:image" content="https://edgar-treischl.github.io/Workshop_GitHubIntro/images/preview.png"/>
+    <meta name="twitter:image:alt" content="Preview Slide"/>
     <meta name="twitter:card" content="summary"/>
-    <meta property="og:title" content="Make it reproducibleR: Put R in Production"/>
-    <meta property="og:description" content="A overview how to put R code into production."/>
+    <meta property="og:title" content="Put R in Production"/>
+    <meta property="og:description" content="A Overview how to Put R Code in Production."/>
     <meta property="og:url" content="https://edgar-treischl.github.io/Workshop_reproducibleR/"/>
+    <meta property="og:image" content="https://edgar-treischl.github.io/Workshop_GitHubIntro/images/preview.png"/>
+    <meta property="og:image:alt" content="Preview Slide"/>
     <meta property="og:type" content="website"/>
     <meta property="og:locale" content="en_US"/>
     <meta property="article:author" content="Edgar J. Treischl"/>
@@ -75,14 +79,11 @@ class: left, bottom
 
 &lt;h1 style="font-family: 'Bangers', sans-serif; font-size: 65px; color: #ffff;"&gt;Put R in&lt;/h1&gt;
 &lt;h1 style="font-family: 'Bangers', sans-serif; font-size: 65px; color: #ffff;"&gt;Production&lt;/h1&gt;
-
-
-&lt;h2&gt;&lt;a href="http://www.edgar-treischl.de" target="_blank" style="font-family: 'Bangers', sans-serif; font-size: 40px; color: #ffff;"&gt;Edgar J. Treischl&lt;/a&gt;&lt;/h2&gt;
-
 &lt;br/&gt;
+&lt;p&gt;&lt;a href="http://www.edgar-treischl.de" target="_blank" style="font-size: 30px; color: #ffff;"&gt;Edgar J. Treischl&lt;/a&gt;&lt;/p&gt;
+
 &lt;br/&gt;
 .white[Last update: 2025-02-04]
-&lt;br/&gt;
 &lt;br/&gt;
 &lt;h4 style = "color:#ffff; text-align: right;"&gt;Press ⭕ or ➡️&lt;/h4&gt;
 
@@ -101,8 +102,8 @@ class: left, bottom
 
 ### 01 Develop 💭
 ### 02 Build 🚧
-### 03 Document 🪪
-### 04 Deploy 🏃‍➡️
+### 03 Document 📄
+### 04 Deploy 🏃‍♀️‍➡️
 
 
 
@@ -115,33 +116,39 @@ class: left, bottom
 
 ]
 
+---
+
+class: middle, center, inverse
+
+## Let's face the truth ...
+
 
 
 
 ---
 background-image: url("https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTNpOWh5ZmJsdnk1Mnh0OGYxNHhvajZwNzFzbHZoNWw4aXAyY2c4YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Qumf2QovTD4QxHPjy5/giphy.gif")
 background-size: cover
-class: top, center
+class: bottom, center
 
 
-## .white[Develop, but get rid of bad habits first &lt;br&gt; 😄] 
+## .white[... develop, but get rid of bad habits first &lt;br&gt; 😄] 
 
 &lt;div class="remark-footer"&gt;&lt;a href="https://giphy.com/gifs/moodman-batman-smack-smacked-Qumf2QovTD4QxHPjy5" target="_blank" style="color: white;"&gt;Images source: MOODMAN&lt;/a&gt;&lt;/div&gt;
 
 
 ---
-## 01: Start with a clean slate ...
+## 01: Start with a clean slate and restart R
 
 .pull-left[
 
-- and restart R: Do not save the workspace and do not load the workspace from an `.Rdata` file (Based on Bryan et al. 2021). 
+- Do not save the workspace and do not load the workspace from an `.Rdata` file (Based on Bryan et al. 2021). 
 
-
-### Abandon the rm approach 💀
+ 
+### The rm approach 🔫
 
 - `rm(list = ls())` deletes user-created objects from the global workspace.
 
-- The script may break due to hidden dependencies on things you ran in this R process before you executed: Attached packages are not detached, changed options are not restored, working directory is untouched!
+- **But**: The script may break due to hidden dependencies on things you ran in this R process before you executed: Attached packages are not detached, changed options are not restored, working directory is untouched!
 
 
 
@@ -158,7 +165,7 @@ class: top, center
 
 ---
 
-## 01: Don't Go Places Where You Don't Belong
+## Don't Go Places Where You Don't Belong ...
 
 &lt;img src="images/drake.png" style="width: 65%"/&gt;
 
@@ -167,21 +174,25 @@ class: top, center
 
 ## 01: Fix paths with the here package
 
-### Abandon absolute paths, they will break anyway 💀
+#### Abandon absolute paths, they will break anyway ⚡
 
 
 
 
 ``` r
-#Don't:
+# Don't:
 readr::read_csv("~/Documents/Berichte/orig/104_data.csv")
 ```
 
-Create a project and use the `here` package:
+```
+## Error: '~/Documents/Berichte/orig/104_data.csv' does not exist.
+```
+
+#### Ceate a project and use the `here` package:
 
 
 ``` r
-#Here returns the path to the project
+# Here returns the path to the project
 here::here()
 ```
 
@@ -192,7 +203,7 @@ here::here()
 
 
 ``` r
-#Create a path to the data file
+# Create a path to the file
 here::here("data", "descriptive_title.csv")
 ```
 
@@ -365,7 +376,7 @@ lintr::lint(text = 'myFunction &lt;- function(x, y) {
 
 
 
-There are even more goodies 🦹‍♀️ if you develop an R package:
+There are even more goodies 🦹‍♂️ if you develop an R package:
 
 
 ``` r
@@ -411,7 +422,7 @@ class: bottom, center
 ]
 
 ---
-## 02: devtools does the heavy lifting 🏋️‍♀️
+## 02: devtools does the heavy lifting 🏋️
 
 &lt;div class="info-box"&gt;
   &lt;i&gt;🦜&lt;/i&gt; "The aim of devtools is to make package development easier by providing R functions that simplify and expedite common tasks. R Packages is a book based around this workflow." (Wickham et al. 2022)
@@ -552,7 +563,7 @@ background-image: url("https://i.gifer.com/8Bx3.gif")
 background-size: cover
 class: bottom, center
 
-# .black[... but don't forget to test 😜] 
+# .black[... but don't forget to test 👻] 
 
 
 &lt;div class="remark-footer"&gt;&lt;a href="https://gifer.com/de/8Bx3" target="_blank" style="color: black;"&gt;Source: Gifer&lt;/a&gt;&lt;/div&gt;
@@ -961,14 +972,13 @@ mysession$platform
 ##  version  R version 4.4.2 (2024-10-31)
 ##  os       macOS Sequoia 15.3
 ##  system   aarch64, darwin20
-##  ui       RStudio
+##  ui       X11
 ##  language (EN)
 ##  collate  en_US.UTF-8
 ##  ctype    en_US.UTF-8
 ##  tz       Europe/Berlin
 ##  date     2025-02-04
-##  rstudio  2024.12.0+467 Kousa Dogwood (desktop)
-##  pandoc   3.6.2 @ /opt/homebrew/bin/ (via rmarkdown)
+##  pandoc   3.2 @ /Applications/RStudio.app/Contents/Resources/app/quarto/bin/tools/aarch64/ (via rmarkdown)
 ```
 
 
