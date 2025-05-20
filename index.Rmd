@@ -78,13 +78,14 @@ meta() %>%
     description = "A Overview how to Put R Code in Production.",
     generator = "xaringan and remark.js"
   ) %>% 
-  meta_name("github-repo" = "edgar-treischl/Workshop_GitHubIntro") %>% 
+  meta_name("github-repo" = "edgar-treischl/Workshop_reproducibleR") %>% 
   meta_social(
     title = "Put R in Production",
     url = "https://edgar-treischl.github.io/Workshop_reproducibleR/",
     og_type = "website",
     og_author = "Edgar J. Treischl",
-    image = "https://edgar-treischl.github.io/Workshop_GitHubIntro/images/preview.png",
+    image = "https://edgar-treischl.github.io/Workshop_reproducibleR
+/images/preview.png",
     image_alt = "Preview Slide"
   )
 ```
@@ -98,7 +99,7 @@ cat(readLines("github-corner.html"), sep = "\n")
 <h1 style="font-family: 'Bangers', sans-serif; font-size: 65px; color: #ffff;">Put R in</h1>
 <h1 style="font-family: 'Bangers', sans-serif; font-size: 65px; color: #ffff;">Production</h1>
 <br/>
-<p><a href="http://www.edgar-treischl.de" target="_blank" style="font-size: 30px; color: #ffff;">Edgar J. Treischl</a></p>
+<p><a href="http://www.edgar-treischl.de" target="_blank" style="font-size: 35px; color: #ffff;">Edgar J. Treischl</a></p>
 
 <br/>
 .white[Last update: `r Sys.Date()`]
