@@ -75,16 +75,16 @@ style_mono_accent(
 library(metathis)
 meta() %>%
   meta_general(
-    description = "A Overview how to Put R Code in Production.",
+    description = "Slides: Put R Code in Production.",
     generator = "xaringan and remark.js"
   ) %>% 
-  meta_name("github-repo" = "edgar-treischl/Workshop_reproducibleR") %>% 
+  meta_name("github-repo" = "edgar-treischl/slidesRinProduction") %>% 
   meta_social(
     title = "Put R in Production",
-    url = "https://edgar-treischl.github.io/Workshop_reproducibleR/",
+    url = "https://edgar-treischl.github.io/slidesRinProduction/",
     og_type = "website",
     og_author = "Edgar J. Treischl",
-    image = "https://edgar-treischl.github.io/Workshop_reproducibleR
+    image = "https://edgar-treischl.github.io/slidesRinProduction
 /images/preview.png",
     image_alt = "Preview Slide"
   )
