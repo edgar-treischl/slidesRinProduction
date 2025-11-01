@@ -277,7 +277,7 @@ background-size: 8%
 ### Track changes over time
 
 <figure>
-    <a href="https://r-pkgs.org" target="_blank"><img src="https://edgar-treischl.github.io/Workshop_GitHubIntro/images/Fig_0901.png" alt="www.edgar-treischl.de" width="95%"/>
+    <a href="https://r-pkgs.org" target="_blank"><img src="https://edgar-treischl.github.io/slidesGit/images/Fig_0901.png" alt="www.edgar-treischl.de" width="95%"/>
 </figure>
 
 
